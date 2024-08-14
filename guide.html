@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide - Pixel Mart</title>
+    <link rel="icon" href="OIP.jfif" type="image/jfif">
+    <style>
+        /* Styles de base */
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            background-color: black;
+            position: relative;
+            overflow-x: hidden;
+            margin: 0;
+        }
+
+        /* Filigrane en fond */
+        .background-watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-30deg);
+            color:orange;
+            font-size: 5rem;
+            font-weight: bold;
+            pointer-events: none;
+            user-select: none;
+            white-space: nowrap;
+            z-index: -1;
+        }
+
+        /* Container principal */
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* En-tête avec les icônes de réseaux sociaux */
+        .social-icons {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            display: flex;
+            gap: 1rem;
+            z-index: 1;
+        }
+
+        .social-icons a {
+            text-decoration: none;
+        }
+
+        .social-icons img {
+            width: 30px;
+            height: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.2);
+        }
+
+        /* Titre et texte */
+        h1 {
+            text-align: center;
+            color: #e67e22;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        /* Animation du texte */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animated {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        /* Section des règles */
+        .rules {
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .rules h2 {
+            color: #e67e22;
+            margin-top: 0;
+        }
+
+        /* Conteneur du logo */
+        .logo-container {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: black;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 10000; /* Assure que le logo est au-dessus des autres éléments */
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+     <!-- Conteneur du logo -->
+    <div class="logo-container">
+        <img src="log2.jfif" alt="Logo Pixel Mart">
+    </div>
+
+    <div class="background-watermark">Pixel Mart</div>
+
+    <div class="container">
+        <!-- En-tête avec les icônes de réseaux sociaux -->
+        <div class="social-icons">
+            <a href="https://www.facebook.com" target="_blank">
+                <img src="fb.png" alt="Facebook">
+            </a>
+            <a href="https://www.instagram.com" target="_blank">
+                <img src="insta.jfif" alt="Instagram">
+            </a>
+            <a href="https://www.snapchat.com" target="_blank">
+                <img src="snap.jfif" alt="Snapchat">
+            </a>
+        </div>
+
+        <!-- Contenu de la page -->
+        <h1 class="animated">Guide de Commande</h1>
+        
+        <p class="animated">Après avoir validé votre commande, il est essentiel de retirer tous les produits commandés de votre panier pour réinitialiser celui-ci. Cela garantit que votre panier est prêt pour de futures commandes et aide à éviter les erreurs de commande. Assurez-vous de vérifier votre panier avant de finaliser toute nouvelle commande.</p>
+
+        <div class="rules animated">
+            <h2>Règles à Respecter</h2>
+            <p>1. Les produits ajoutés au panier doivent être vérifiés avant la confirmation de la commande.</p>
+            <p>2. Assurez-vous de bien comprendre les conditions de retour et de remboursement avant de finaliser votre achat.</p>
+            <p>3. Les informations de contact doivent être correctes pour garantir la livraison de vos produits.</p>
+            <p>4. Veuillez respecter les règles de sécurité de notre site et signaler tout comportement suspect.</p>
+            <p>5. Toute tentative de fraude entraînera la suspension de votre compte.</p>
+        </div>
+    </div>
+
+</body>
+</html>

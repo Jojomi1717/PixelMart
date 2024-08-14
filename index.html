@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelmarT</title>
+    <link rel="icon" href="OIP.jfif" type="image/jfif">
+    <style>
+      /* Réinitialisation de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styles globaux */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fafafa;
+}
+
+header {
+    position: relative;
+    background: url('header-background.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 3rem 1rem;
+    overflow: hidden;
+}
+
+header .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+header h1 {
+    position: relative;
+    z-index: 2;
+    font-size: 3.5rem;
+    margin: 0;
+    animation: fadeIn 2s ease-out;
+}
+
+/* Animation de l'en-tête */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Section de présentation */
+section.about {
+    padding: 3rem 1rem;
+    text-align: center;
+    background-color: #ffffff;
+    border-bottom: 3px solid #f8c291;
+    animation: slideUp 1s ease-out;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+section.about h2 {
+    font-size: 2.8rem;
+    color: #e67e22;
+    margin-bottom: 1rem;
+}
+
+section.about p {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Grille des produits */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+    background-color: #ffffff;
+}
+
+.product-card {
+    background: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+    position: relative;
+    animation: popIn 0.5s ease-out;
+}
+
+@keyframes popIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border: 2px solid #e67e22;
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.1);
+}
+
+.product-info {
+    padding: 1rem;
+    text-align: center;
+}
+
+.product-name {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #e67e22;
+    margin-bottom: 0.5rem;
+}
+
+.product-description {
+    font-size: 1.1rem;
+    color: #7f8c8d;
+    margin-bottom: 0.5rem;
+}
+
+.product-price {
+    font-size: 1.4rem;
+    color: #e74c3c;
+}
+
+/* Section de contact */
+section.contact {
+    padding: 3rem 1rem;
+    background-color: black;
+    border-top: 3px solid #e67e22;
+    text-align: center;
+    animation: fadeIn 1.5s ease-out;
+}
+
+section.contact h2 {
+    font-size: 2.5rem;
+    color: #e67e22;
+    margin-bottom: 1rem;
+}
+
+section.contact form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+section.contact input,
+section.contact textarea {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+button {
+    background-color: orange;
+    color: #fff;
+    padding: 15px 30px;
+
+    border: none;
+    border-radius: 50px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    animation: bounce 1.5s infinite ease-in-out;
+}
+
+section.contact input:focus,
+section.contact textarea:focus {
+    border-color: #e67e22;
+    outline: none;
+    box-shadow: 0 0 5px rgba(230, 126, 34, 0.5);
+}
+
+section.contact input[type="submit"] {
+    background-color: #e67e22;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+section.contact input[type="submit"]:hover {
+    background-color: #d35400;
+    transform: scale(1.05);
+}
+
+/* Pied de page */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: blueviolet;
+    color: #fff;
+}
+/* Bouton Ajouter au panier */
+        .add-to-cart {
+            background-color: #3498db;
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .add-to-cart:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+
+        /* Panier d'achat */
+        #cart-summary {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #ffffff;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            z-index: 1000;
+        }
+
+        #cart-summary h3 {
+            margin-bottom: 1rem;
+            color: #e67e22;
+        }
+
+        #cart-summary .cart-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        #cart-summary .cart-item span {
+            font-size: 1rem;
+            color: #333;
+        }
+         /* Section des produits similaires */
+        .suggested-products {
+            margin-top: 2rem;
+            background-color: #f2f2f2;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .suggested-products h3 {
+            font-size: 2rem;
+            color: #e67e22;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .suggested-products .product-card {
+            background: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+            position: relative;
+            margin: 0.5rem;
+            padding: 1rem;
+        }
+        #checkout-button  {
+            position: fixed;
+            top: 10px;
+            right: 230px;
+           
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            z-index: 1000;
+        }
+        .button-container {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
+           
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            z-index: 1000;
+        }
+
+        /* Style du bouton Guide d'utilisation */
+        .guide-button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .guide-button:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+
+        .guide-button svg {
+            width: 20px;
+            height: 20px;
+            fill: #fff;
+        }
+
+    </style>
+     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+ 
+    <!-- En-tête du site -->
+    <header>
+        <div class="overlay"></div>
+        <h1>Pixel Mart</h1>
+    </header>
+
+    <!-- Section de présentation -->
+    <section class="about">
+        <h2>Bienvenue chez Pixel Mart</h2>
+        <p>Bienvenue chez PixelMart, votre destination en ligne pour tout ce qui est moderne, tendance et technologique !**
+
+Chez PixelMart, nous croyons que le futur est déjà là, et nous sommes ravis de vous offrir une gamme soigneusement sélectionnée de produits innovants et stylés qui s'intègrent parfaitement à votre vie numérique. Que vous soyez à la recherche des derniers gadgets, d'accessoires de mode futuristes, ou d'articles de maison intelligents, vous trouverez ici tout ce dont vous avez besoin pour vivre à l'ère du digital.
+
+Explorez notre collection et découvrez des articles qui allient design, qualité et fonctionnalité. Avec PixelMart, chaque achat vous rapproche un peu plus du futur.
+
+Merci de choisir PixelMart. Bon shopping !
+          .</p>
+         </section>
+   
+    
+     <div class="cart-summary" id="cart-summary">
+            <h2>Panier</h2>
+            <div id="cart-items">
+                <p>Votre panier est vide.</p>
+            </div>
+            <button class="checkout-button" id="go-to-checkout">Passer à la caisse</button>
+
+       </div>
+         <div class="button-container">
+        <a href="guide.html" class="guide-button">
+            Guide d'utilisation
+            <!-- Exemple d'icône SVG pour le bouton -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4.5C9.24 4.5 7 6.74 7 9.5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 8.5c-1.93 0-3.5-1.57-3.5-3.5S10.07 5.5 12 5.5s3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5zm1-9h-2v4h2V4zm-2 6h2v2h-2v-2z"/></svg>
+        </a>
+    </div>
+
+
+
+    <!-- Grille des produits -->
+    <div class="container">
+        <!-- Répéter ce bloc 20 fois pour les 20 produits -->
+        <div class="product-card">
+            <img src="montre1.jpg" alt="Produit 1">
+            <div class="product-info">
+                <div class="product-name"  data-product-id="1">Produit 1</div>
+                <div class="product-description"  data-product-id="1">Description courte du produit 1.</div>
+                <div class="product-price"  data-product-id="1">15.00 €</div>
+                <br>
+                <div>
+                  <button class="add-to-cart" data-product-id="1">Ajouter au panier</button></div> <br>
+                <button>  <a href="commande.html?produit=produit1" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+            </div>
+        </div>
+         <div class="product-card">
+            <img src="montre2.jfif" alt="Produit 1">
+            <div class="product-info">
+                <div class="product-name"  data-product-id="2">Produit 2</div>
+                <div class="product-description"  data-product-id="2">Description courte du produit 2.</div>
+                <div class="product-price"  data-product-id="2">15.00 €</div>
+                <br>
+                <div>
+                  <button class="add-to-cart" data-product-id="2">Ajouter au panier</button></div> <br>
+                 <button>  <a href="commande.html?produit=produit2" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+            </div>
+        </div>
+         <div class="product-card">
+            <img src="montre3.jfif" alt="Produit 1">
+            <div class="product-info">
+                <div class="product-name"  data-product-id="3">Produit 3</div>
+                <div class="product-description"  data-product-id="3">Description courte du produit 3.</div>
+                <div class="product-price"  data-product-id="3">15.00 €</div>
+                <br>
+                <div>
+                  <button class="add-to-cart" data-product-id="3">Ajouter au panier</button></div> <br>
+                <button>  <a href="commande.html?produit=produit3" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+            </div>
+        </div>
+         <div class="product-card">
+            <img src="montre4.jfif" alt="Produit 1">
+            <div class="product-info">
+                <div class="product-name"  data-product-id="4">Produit 4</div>
+                <div class="product-description"  data-product-id="4">Description courte du produit 1.</div>
+                <div class="product-price"  data-product-id="4">15.00 €</div>
+                <br>
+                <div>
+                  <button class="add-to-cart" data-product-id="4">Ajouter au panier</button></div> <br>
+              <button>  <a href="commande.html?produit=produit4" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+            </div>
+        </div>
+         <div class="product-card">
+            <img src="montre5.jpg" alt="Produit 5">
+            <div class="product-info">
+                <div class="product-name"  data-product-id="5">Produit 5</div>
+                <div class="product-description"  data-product-id="5">Description courte du produit 1.</div>
+                <div class="product-price"  data-product-id="5">15.00 €</div>
+                <br>
+                <div>
+                  <button class="add-to-cart" data-product-id="5">Ajouter au panier</button></div> <br>
+                 <button>  <a href="commande.html?produit=produit5" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+            </div>
+        </div>
+         <div class="product-card">
+            <img src="montre6.jfif" alt="Produit 1">
+            <div class="product-info">
+                <div class="product-name"  data-product-id="6">Produit 6</div>
+                <div class="product-description"  data-product-id="6">Description courte du produit 1.</div>
+                <div class="product-price"  data-product-id="6">15.00 €</div>
+                <br>
+                <div>
+                  <button class="add-to-cart" data-product-id="6">Ajouter au panier</button></div> <br>
+                <button>  <a href="commande.html?produit=produit6" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+            </div>
+        </div>
+         <div class="product-card">
+            <img src="montre7.jfif" alt="Produit 1">
+            <div class="product-info">
+                <div class="product-name"  data-product-id="7">Produit 7</div>
+                <div class="product-description"  data-product-id="7">Description courte du produit 1.</div>
+                <div class="product-price"  data-product-id="7">15.00 €</div>
+                <br>
+                <div>
+                  <button class="add-to-cart" data-product-id="7">Ajouter au panier</button></div> <br>
+                <button>  <a href="commande.html?produit=produit7" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+            </div>
+        </div>
+
+        <!-- Ajouter d'autres produits ici (copier-coller le bloc product-card et changer les détails) -->
+
+        <div class="product-card">
+            <img src="montre8.webp" alt="Produit 2">
+            <div class="product-info">
+                <div class="product-name"  data-product-id="8">Produit 8</div>
+                <div class="product-description"  data-product-id="8">Description courte du produit 2.</div>
+                <div class="product-price"  data-product-id="8">25.00 €</div><br>
+                <div>
+                  <button class="add-to-cart" data-product-id="8">Ajouter au panier</button></div> <br>
+                  <button>  <a href="commande.html?produit=produit8" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+            </div>
+        </div>
+
+        <!-- Et ainsi de suite jusqu'à 20 produits... -->
+    </div>
+    <!-- Section des produits similaires -->
+<div class="suggested-products">
+    <h3>Produits similaires</h3>
+    <div class="container">
+        <div class="product-card">
+            <img src="iphone15.jfif" alt="Tablet">
+            <div class="product-info">
+                <h3 class="product-name" data-product-id="9">Tablette TLM</h3>
+                <p class="product-description">Écran Retina, stockage 256 Go.</p>
+                <span class="product-price" data-product-id="9">499€</span>
+                <br>
+                <button class="add-to-cart" data-product-id="9">Ajouter au panier</button>
+                 <button>  <a href="commande.html?produit=iphone15" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="moooooontre.jfif" alt="Smartwatch">
+            <div class="product-info">
+                <h3 class="product-name" data-product-id="10">Smartwatch DEF</h3>
+                <p class="product-description">Moniteur cardiaque, GPS intégré.</p>
+                <span class="product-price" data-product-id="10">299€</span>
+                <br>
+                <button class="add-to-cart" data-product-id="10">Ajouter au panier</button>
+                 <button>  <a href="commande.html?produit=moooooontre connecté" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Section de contact -->
+    <section class="contact">
+        <h2>Contactez-nous</h2>
+        <form id="contact-form">
+        <label for="from_name">Votre Nom:</label>
+        <input type="text" id="from_name" name="from_name" required>
+        <br>
+        <label for="to_name">Nom du Destinataire:</label>
+        <input type="text" id="to_name" name="to_name" required>
+        <br>
+        <label for="reply_to">Votre Email:</label>
+        <input type="email" id="reply_to" name="reply_to" required>
+        <br>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        <br>
+        <input type="submit" value="Envoyer">
+    </form>
+
+      
+
+    </section>
+    <script>
+
+        // Initialiser EmailJS avec votre User ID
+        (function() {
+            emailjs.init('MZVVI3bSwsE-roeZA'); // Remplacez 'YOUR_USER_ID' par votre vrai User ID
+        })();
+
+        // Gestion de l'envoi du formulaire
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Récupération des données du formulaire
+            const fromName = document.getElementById('from_name').value;
+            const toName = document.getElementById('to_name').value;
+            const message = document.getElementById('message').value;
+            const replyTo = document.getElementById('reply_to').value;
+
+            // Envoi des données via EmailJS
+            emailjs.send('service_zdwnmwf', 'template_ta04kjv', {
+                from_name: fromName,
+                to_name: toName,
+                message: message,
+                reply_to: replyTo,
+            })
+            .then(function(response) {
+                alert('Votre message a été envoyé avec succès!', response.status, response.text);
+            }, function(error) {
+                alert('Échec de l\'envoi du message...', error);
+            });
+        });
+    </script>
+    <script>
+    // Initialisation du panier
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Fonction pour ajouter un produit au panier
+    function addToCart(productId) {
+        // Rechercher le produit dans le panier
+        let product = cart.find(item => item.id === productId);
+
+        // Si le produit est déjà dans le panier, augmenter la quantité
+        if (product) {
+            product.quantity += 1;
+        } else {
+            // Sinon, ajouter le produit au panier avec une quantité de 1
+            cart.push({ id: productId, quantity: 1 });
+        }
+
+        // Sauvegarder le panier dans localStorage
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        // Mettre à jour l'affichage du panier
+        updateCartSummary();
+    }
+
+    // Fonction pour mettre à jour l'affichage du panier
+    function updateCartSummary() {
+        const cartSummary = document.getElementById('cart-summary');
+        const cartItems = cart.map(item => `
+            <div class="cart-item">
+                <span>Produit ${item.id}</span>
+                <span>${item.quantity}</span>
+            </div>
+        `).join('');
+
+        cartSummary.innerHTML = `
+            <h3>Résumé du Panier</h3>
+            ${cartItems}
+            <button id="checkout-button">Passer à la caisse</button>
+        `;
+        
+        // Ajouter un écouteur d'événement pour le bouton de commande
+        document.getElementById('checkout-button').addEventListener('click', () => {
+            if (cart.length === 0) {
+                alert('Votre panier est vide!');
+            } else {
+                window.location.href = 'checkout.html'; // Redirection vers la page de paiement
+            }
+        });
+    }
+
+    // Ajouter des écouteurs d'événements pour les boutons "Ajouter au panier"
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', function() {
+            const productId = this.getAttribute('data-product-id');
+            addToCart(parseInt(productId));
+        });
+    });
+
+    // Mettre à jour l'affichage du panier au chargement de la page
+    updateCartSummary();
+</script>
+
+  
+
+    <!-- Pied de page -->
+    <footer>
+        <p> &copy; 2024 Pixel Mart. Tous droits réservés.</p>
+    </footer>
+
+    </body>
+
+</html>
