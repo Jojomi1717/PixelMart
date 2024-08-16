@@ -1152,7 +1152,7 @@ updateCartSummary();
             reader.onload = function(e) {
                 const imageUrl = e.target.result;
                 message += `\n Photo de l'article: ${imageUrl}`;
-                window.location.href = `https://wa.me/22941788118?text=${encodeURIComponent(message)}`;
+                window.location.href = `https://wa.me/22941788118?text=${encodeURIComponent(fullMessage)}`;
             };
             reader.readAsDataURL(itemPhoto);
         } else {
