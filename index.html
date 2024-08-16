@@ -323,7 +323,7 @@ footer {
             gap: 1rem;
            left: 50%;
             right: 50% ;
-            max-width: 767px ;
+           
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 10px;
@@ -331,7 +331,7 @@ footer {
             max-width: 300px;
             z-index: 1000;
              justify-content: center;
-            trasform: translate ( -50% , -50% );
+            transform: translate ( -50% , -50% );
         }
         /* Style du bouton Guide d'utilisation */
       
@@ -1030,7 +1030,24 @@ Merci de choisir PixelMart. Bon shopping !
 
     </section>
     <script>
+ 
+     <script>
+        // Fonction pour afficher ou cacher l'élément basé sur la position du défilement
+        window.addEventListener('scroll', function() {
+            var scrollPosition = window.scrollY || window.pageYOffset; // Position de défilement
+            var element = document.getElementById('cart-summary'); // L'élément à afficher/cacher
 
+            // Définir la position de défilement après laquelle l'élément doit apparaître (en pixels)
+            var triggerPoint = 300; // Ajustez ce nombre selon vos besoins
+
+            if (scrollPosition > triggerPoint) {
+                element.style.display = 'block'; // Afficher l'élément
+            } else {
+                element.style.display = 'none'; // Cacher l'élément
+            }
+        });
+    
+    </script>
         // Initialiser EmailJS avec votre User ID
         (function() {
             emailjs.init('MZVVI3bSwsE-roeZA'); // Remplacez 'YOUR_USER_ID' par votre vrai User ID
@@ -1060,24 +1077,7 @@ Merci de choisir PixelMart. Bon shopping !
             });
         });
     </script>
-    <script>
-     <script>
-        // Fonction pour afficher ou cacher l'élément basé sur la position du défilement
-        window.addEventListener('scroll', function() {
-            var scrollPosition = window.scrollY || window.pageYOffset; // Position de défilement
-            var element = document.getElementById('cart-summary'); // L'élément à afficher/cacher
-
-            // Définir la position de défilement après laquelle l'élément doit apparaître (en pixels)
-            var triggerPoint = 300; // Ajustez ce nombre selon vos besoins
-
-            if (scrollPosition > triggerPoint) {
-                element.style.display = 'block'; // Afficher l'élément
-            } else {
-                element.style.display = 'none'; // Cacher l'élément
-            }
-        });
-    </script>
-    </script>
+   
      <script>
    // Initialisation du panier
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
