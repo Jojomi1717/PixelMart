@@ -241,6 +241,7 @@ footer {
             position: fixed;
             top: 7px;
             right: 10px;
+            display: none ;
             background-color: #ffffff;
             padding: 10px;
             border: 1px solid #ccc;
@@ -321,6 +322,7 @@ footer {
             align-items: center;
             gap: 1rem;
            left: 50%;
+            right: 50% ;
             max-width: 767px ;
             padding: 10px;
             border: 1px solid #ccc;
@@ -1056,6 +1058,18 @@ Merci de choisir PixelMart. Bon shopping !
                 alert('Échec de l\'envoi du message...', error);
             });
         });
+    </script>
+    <script>
+        window.addEventListener('scroll', function() {
+    var bouton = document.getElementById('cart-summury');
+    var seuil = 500; // Hauteur de défilement à partir de laquelle le bouton apparaît (en pixels)
+
+    if (window.scrollY > seuil) {
+        bouton.style.display = 'block';
+    } else {
+        bouton.style.display = 'none';
+    }
+});
     </script>
      <script>
    // Initialisation du panier
