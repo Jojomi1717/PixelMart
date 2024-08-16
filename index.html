@@ -1137,29 +1137,41 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
 updateCartSummary();
 
 </script>
+ <script>
+        const cloudName = 'dy4tdelck'; // Remplacez par le nom de votre cloud
+        const uploadPreset = 'junior'; // Remplacez par votre upload preset
 
-<script>
-    document.getElementById('request-form').addEventListener('submit', function(event) {
-        event.preventDefault();
+        document.getElementById('request-form').addEventListener('submit', function(event) {
+            event.preventDefault();
 
-        const itemName = document.getElementById('item-name').value;
-        const itemPhoto = document.getElementById('item-photo').files[0];
+            const itemName = document.getElementById('item-name').value;
+            const itemPhoto = document.getElementById('item-photo').files[0];
 
-        let message = `Nom de l'article: ${itemName}`;
-        
-        if (itemPhoto) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const imageUrl = e.target.result;
-                message += `\n Photo de l'article: ${imageUrl}`;
-                window.location.href = `https://wa.me/22941788118?text=${encodeURIComponent(fullMessage)}`;
-            };
-            reader.readAsDataURL(itemPhoto);
-        } else {
-            window.location.href = `https://wa.me/22941788118?text=${encodeURIComponent(message)}`;
-        }
-    });
-</script>
+            let message = `Nom de l'article: ${itemName}`;
+
+            if (itemPhoto) {
+                const formData = new FormData();
+                formData.append('file', itemPhoto);
+                formData.append('upload_preset', uploadPreset);
+
+                fetch(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    const imageUrl = data.secure_url; // URL publique de l'image
+                    message += `\nPhoto de l'article: ${imageUrl}`;
+                    window.location.href = `https://wa.me/22941788118?text=${encodeURIComponent(message)}`;
+                })
+                .catch(error => {
+                    console.error('Erreur lors du téléchargement de l\'image:', error);
+                });
+            } else {
+                window.location.href = `https://wa.me/22941788118?text=${encodeURIComponent(message)}`;
+            }
+        });
+    </script>
 
   
 
