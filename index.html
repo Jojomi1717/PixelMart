@@ -314,15 +314,14 @@ footer {
             z-index: 1000;
         }
     }
-        .button-container {
+         .button-container {
             position: relative;
             top: -80px;
             left: 1rem;
             display: flex;
             align-items: center;
             gap: 1rem;
-           left: 50%;
-            right: 50% ;
+           left: 500px;
            
             padding: 10px;
             border: 1px solid #ccc;
@@ -330,8 +329,6 @@ footer {
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             max-width: 300px;
             z-index: 1000;
-             justify-content: center;
-            transform: translate ( -50% , -50% );
         }
         /* Style du bouton Guide d'utilisation */
       
@@ -472,7 +469,7 @@ Merci de choisir PixelMart. Bon shopping !
          </section>
    
     
-       <div class="cart-summary" id="cart-summary">
+      <div class="cart-summary" id="cart-summary">
     <h2>Panier</h2>
     <div class="cart-items-container" id="cart-items">
         <p>Votre panier est vide.</p>
@@ -1029,9 +1026,7 @@ Merci de choisir PixelMart. Bon shopping !
       
 
     </section>
-    <script>
- 
-     <script>
+  <script>
         // Fonction pour afficher ou cacher l'élément basé sur la position du défilement
         window.addEventListener('scroll', function() {
             var scrollPosition = window.scrollY || window.pageYOffset; // Position de défilement
@@ -1046,8 +1041,8 @@ Merci de choisir PixelMart. Bon shopping !
                 element.style.display = 'none'; // Cacher l'élément
             }
         });
-    
     </script>
+    <script>
         // Initialiser EmailJS avec votre User ID
         (function() {
             emailjs.init('MZVVI3bSwsE-roeZA'); // Remplacez 'YOUR_USER_ID' par votre vrai User ID
