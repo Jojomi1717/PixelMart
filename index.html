@@ -994,14 +994,12 @@ Merci de choisir PixelMart. Bon shopping !
 <section class="request-item">
     <div class="request-content">
         <h2>Vous ne trouvez pas ce que vous cherchez ?</h2>
-        <p>Envoyez-nous la photo ou le nom de l'article que vous recherchez et nous nous ferons un plaisir de vous aider à le trouver !</p>
+        <p>Envoyez-nous le nom de l'article que vous recherchez et nous nous ferons un plaisir de vous aider à le trouver !</p>
         <form id="request-form">
-            <label for="item-name">Nom de l'article:</label>
+            <label for="item-name">Nom de l'article introuvable sur le site :</label>
             <input type="text" id="item-name" name="item-name" placeholder="Nom de l'article" required>
             <br>
-            <label for="item-photo">Photo de l'article (optionnel):</label>
-            <input type="file" id="item-photo" name="item-photo" accept="image/*">
-            <br>
+           
             <input type="submit" value="Envoyer">
         </form>
     </div>
@@ -1138,38 +1136,18 @@ updateCartSummary();
 
 </script>
  <script>
-        const cloudName = 'dy4tdelck'; // Remplacez par le nom de votre cloud
-        const uploadPreset = 'junior'; // Remplacez par votre upload preset
+    
 
         document.getElementById('request-form').addEventListener('submit', function(event) {
             event.preventDefault();
 
             const itemName = document.getElementById('item-name').value;
-            const itemPhoto = document.getElementById('item-photo').files[0];
+           
 
-            let message = `Nom de l'article: ${itemName}`;
+            let message = `je recherche des : ${itemName}`;
 
-            if (itemPhoto) {
-                const formData = new FormData();
-                formData.append('file', itemPhoto);
-                formData.append('upload_preset', uploadPreset);
-
-                fetch(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(response => response.json())
-                .then(data => {
-                    const imageUrl = data.secure_url; // URL publique de l'image
-                    message += `\nPhoto de l'article: ${imageUrl}`;
-                    window.location.href = `https://wa.me/22941788118?text=${encodeURIComponent(message)}`;
-                })
-                .catch(error => {
-                    console.error('Erreur lors du téléchargement de l\'image:', error);
-                });
-            } else {
                 window.location.href = `https://wa.me/22941788118?text=${encodeURIComponent(message)}`;
-            }
+            
         });
     </script>
 
