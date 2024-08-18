@@ -437,7 +437,23 @@ footer {
         transform: translateY(0);
     }
 }
-
+.button-eraste {
+    position: relative;
+            top: -20px;
+            
+           
+            
+            align-items: center;
+            gap: 1rem;
+           
+          right: -30%;
+           display:flex  ;
+            padding: c0px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+}
     </style>
      <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script> 
     <!-- Google tag (gtag.js) -->
@@ -489,14 +505,21 @@ Merci de choisir PixelMart. Bon shopping !
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4.5C9.24 4.5 7 6.74 7 9.5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 8.5c-1.93 0-3.5-1.57-3.5-3.5S10.07 5.5 12 5.5s3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5zm1-9h-2v4h2V4zm-2 6h2v2h-2v-2z"/></svg>
         </a>
     </div>
+         <div class="button-eraste">
+        <a href="new.html" class="guide-button">
+           Veuillez jeter un coup d'oeil à nos nouveau produit 
+            <!-- Exemple d'icône SVG pour le bouton -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4.5C9.24 4.5 7 6.74 7 9.5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 8.5c-1.93 0-3.5-1.57-3.5-3.5S10.07 5.5 12 5.5s3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5zm1-9h-2v4h2V4zm-2 6h2v2h-2v-2z"/></svg>
+        </a>
+    </div>
 
 
 
-   <!-- Grille des produits -->
+    <!-- Grille des produits -->
     <div class="container">
         <!-- Répéter ce bloc 20 fois pour les 20 produits -->
        <div class="product-card">
-            <img src="paire_7.JPG" alt="Produit 1">
+            <img src="paire_7.jpg" alt="Produit 1">
             <div class="product-info">
                 <div class="product-name"  data-product-id="1">paire 1</div>
                 <div class="product-description"  data-product-id="1">Description courte du produit 1.</div>
@@ -504,10 +527,13 @@ Merci de choisir PixelMart. Bon shopping !
                 <br>
                 <div>
                   <button class="add-to-cart" data-product-id="1">Ajouter au panier</button></div> <br>
-                <button>  <a href="commande.html?produit=produit1" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+           <form action="commande.html" method="get">
+    <input type="hidden" name="produit" value="air force gros lacet">
+    <button type="submit">Passer votre commande</button>
+</form>
             </div>
         </div>  <div class="product-card">
-            <img src="paire_8.JPG" alt="Produit 1">
+            <img src="paire_8.jpg" alt="Produit 1">
             <div class="product-info">
                 <div class="product-name"  data-product-id="2">paire 2</div>
                 <div class="product-description"  data-product-id="2">Description courte du produit 1.</div>
@@ -515,12 +541,15 @@ Merci de choisir PixelMart. Bon shopping !
                 <br>
                 <div>
                   <button class="add-to-cart" data-product-id="2">Ajouter au panier</button></div> <br>
-                <button>  <a href="commande.html?produit=produit2" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+              <form action="commande.html" method="get">
+    <input type="hidden" name="produit" value="produit1">
+    <button type="submit">Passer votre commande</button>
+</form>
             </div>
         </div>
          
           <div class="product-card">
-            <img src="paire_10.JPG" alt="Produit 1">
+            <img src="paire_10.jpg" alt="Produit 1">
             <div class="product-info">
                 <div class="product-name"  data-product-id="3">Paire 3</div>
                 <div class="product-description"  data-product-id="3">Description courte du produit 1.</div>
@@ -528,12 +557,15 @@ Merci de choisir PixelMart. Bon shopping !
                 <br>
                 <div>
                   <button class="add-to-cart" data-product-id="3">Ajouter au panier</button></div> <br>
-                <button>  <a href="commande.html?produit=produit3" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+               <form action="commande.html" method="get">
+    <input type="hidden" name="produit" value="produit1">
+    <button type="submit">Passer votre commande</button>
+</form>
             </div>
-        </div>
+      </div>
           
-          <div class="product-card">
-            <img src="paire_12.JPG" alt="Produit 1">
+    <div class="product-card">
+            <img src="paire_12.jpg" alt="Produit 1">
             <div class="product-info">
                 <div class="product-name"  data-product-id="4">Paire 4</div>
                 <div class="product-description"  data-product-id="4">Description courte du produit 1.</div>
@@ -541,12 +573,15 @@ Merci de choisir PixelMart. Bon shopping !
                 <br>
                 <div>
                   <button class="add-to-cart" data-product-id="4">Ajouter au panier</button></div> <br>
-                <button>  <a href="commande.html?produit=produit4" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+               <form action="commande.html" method="get">
+    <input type="hidden" name="produit" value="produit1">
+    <button type="submit">Passer votre commande</button>
+</form>
             </div>
-        </div>
+      </div>
          
           <div class="product-card">
-            <img src="paire_14.JPG" alt="Produit 1">
+            <img src="paire_14.jpg" alt="Produit 1">
             <div class="product-info">
                 <div class="product-name"  data-product-id="5">Paire 5</div>
                 <div class="product-description"  data-product-id="5">Description courte du produit 1.</div>
@@ -554,11 +589,15 @@ Merci de choisir PixelMart. Bon shopping !
                 <br>
                 <div>
                   <button class="add-to-cart" data-product-id="5">Ajouter au panier</button></div> <br>
-                <button>  <a href="commande.html?produit=produit5" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+               
+           <form action="commande.html" method="get">
+    <input type="hidden" name="produit" value="air force gros lacet">
+    <button type="submit">Passer votre commande</button>
+</form>
             </div>
         </div>
           <div class="product-card">
-            <img src="paire_15.JPG" alt="Produit 1">
+            <img src="paire_15.jpg" alt="Produit 1">
             <div class="product-info">
                 <div class="product-name"  data-product-id="6">Paire 6</div>
                 <div class="product-description"  data-product-id="6">Description courte du produit 1.</div>
@@ -566,12 +605,16 @@ Merci de choisir PixelMart. Bon shopping !
                 <br>
                 <div>
                   <button class="add-to-cart" data-product-id="6">Ajouter au panier</button></div> <br>
-                <button>  <a href="commande.html?produit=produit6" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+             
+           <form action="commande.html" method="get">
+    <input type="hidden" name="produit" value="air force gros lacet">
+    <button type="submit">Passer votre commande</button>
+</form>
             </div>
         </div>
          
           <div class="product-card">
-            <img src="paire_17.JPG" alt="Produit 1">
+            <img src="paire_17.jpg" alt="Produit 1">
             <div class="product-info">
                 <div class="product-name"  data-product-id="7">Paire 7</div>
                 <div class="product-description"  data-product-id="7">Description courte du produit 1.</div>
@@ -579,11 +622,15 @@ Merci de choisir PixelMart. Bon shopping !
                 <br>
                 <div>
                   <button class="add-to-cart" data-product-id="7">Ajouter au panier</button></div> <br>
-                <button>  <a href="commande.html?produit=produit7" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+              
+           <form action="commande.html" method="get">
+    <input type="hidden" name="produit" value="air force gros lacet">
+    <button type="submit">Passer votre commande</button>
+</form>
             </div>
         </div>
           <div class="product-card">
-            <img src="paire_18.JPG" alt="Produit 1">
+            <img src="paire_18.jpg" alt="Produit 1">
             <div class="product-info">
                 <div class="product-name"  data-product-id="8">Paire 8</div>
                 <div class="product-description"  data-product-id="8">Description courte du produit 1.</div>
@@ -591,11 +638,15 @@ Merci de choisir PixelMart. Bon shopping !
                 <br>
                 <div>
                   <button class="add-to-cart" data-product-id="8">Ajouter au panier</button></div> <br>
-                <button>  <a href="commande.html?produit=produit8" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+               
+           <form action="commande.html" method="get">
+    <input type="hidden" name="produit" value="air force gros lacet">
+    <button type="submit">Passer votre commande</button>
+</form>
             </div>
         </div>
           <div class="product-card">
-            <img src="paire_19.JPG" alt="Produit 1">
+            <img src="paire_19.jpg" alt="Produit 1">
             <div class="product-info">
                 <div class="product-name"  data-product-id="9">Paire 9</div>
                 <div class="product-description"  data-product-id="9">Description courte du produit 1.</div>
@@ -603,11 +654,15 @@ Merci de choisir PixelMart. Bon shopping !
                 <br>
                 <div>
                   <button class="add-to-cart" data-product-id="9">Ajouter au panier</button></div> <br>
-                <button>  <a href="commande.html?produit=produit9" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+              
+           <form action="commande.html" method="get">
+    <input type="hidden" name="produit" value="air force gros lacet">
+    <button type="submit">Passer votre commande</button>
+</form>
             </div>
         </div>
           <div class="product-card">
-            <img src="paire_20.JPG" alt="Produit 1">
+            <img src="paire_20.jpg" alt="Produit 1">
             <div class="product-info">
                 <div class="product-name"  data-product-id="10">Paire 10</div>
                 <div class="product-description"  data-product-id="10">Description courte du produit 1.</div>
@@ -615,11 +670,15 @@ Merci de choisir PixelMart. Bon shopping !
                 <br>
                 <div>
                   <button class="add-to-cart" data-product-id="10">Ajouter au panier</button></div> <br>
-                <button>  <a href="commande.html?produit=produit10" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+              
+           <form action="commande.html" method="get">
+    <input type="hidden" name="produit" value="air force gros lacet">
+    <button type="submit">Passer votre commande</button>
+</form>
             </div>
         </div>
          <div class="product-card">
-            <img src="paire_21.JPG" alt="Produit 1">
+            <img src="paire_21.jpg" alt="Produit 1">
             <div class="product-info">
                 <div class="product-name"  data-product-id="11">Paire 11</div>
                 <div class="product-description"  data-product-id="11">Description courte du produit 1.</div>
@@ -627,11 +686,15 @@ Merci de choisir PixelMart. Bon shopping !
                 <br>
                 <div>
                   <button class="add-to-cart" data-product-id="11">Ajouter au panier</button></div> <br>
-                <button>  <a href="commande.html?produit=produit11" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+              
+           <form action="commande.html" method="get">
+    <input type="hidden" name="produit" value="air force gros lacet">
+    <button type="submit">Passer votre commande</button>
+</form>
             </div>
         </div>
          <div class="product-card">
-            <img src="paire_22.JPG" alt="Produit 1">
+            <img src="paire_22.jpg" alt="Produit 1">
             <div class="product-info">
                 <div class="product-name"  data-product-id="12">Paire 12</div>
                 <div class="product-description"  data-product-id="12">Description courte du produit 1.</div>
@@ -639,11 +702,15 @@ Merci de choisir PixelMart. Bon shopping !
                 <br>
                 <div>
                   <button class="add-to-cart" data-product-id="12">Ajouter au panier</button></div> <br>
-                <button>  <a href="commande.html?produit=produit12" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+              
+           <form action="commande.html" method="get">
+    <input type="hidden" name="produit" value="air force gros lacet">
+    <button type="submit">Passer votre commande</button>
+</form>
             </div>
         </div>
          <div class="product-card">
-            <img src="paire_23.JPG" alt="Produit 1">
+            <img src="paire_23.jpg" alt="Produit 1">
             <div class="product-info">
                 <div class="product-name"  data-product-id="13">Paire 13</div>
                 <div class="product-description"  data-product-id="13">Description courte du produit 1.</div>
@@ -651,11 +718,15 @@ Merci de choisir PixelMart. Bon shopping !
                 <br>
                 <div>
                   <button class="add-to-cart" data-product-id="13">Ajouter au panier</button></div> <br>
-                <button>  <a href="commande.html?produit=produit13" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+              
+           <form action="commande.html" method="get">
+    <input type="hidden" name="produit" value="air force gros lacet">
+    <button type="submit">Passer votre commande</button>
+</form>
             </div>
         </div>
          <div class="product-card">
-            <img src="paire_24.JPG" alt="Produit 1">
+            <img src="paire_24.jpg" alt="Produit 1">
             <div class="product-info">
                 <div class="product-name"  data-product-id="14">Paire 14</div>
                 <div class="product-description"  data-product-id="14">Description courte du produit 1.</div>
@@ -663,11 +734,15 @@ Merci de choisir PixelMart. Bon shopping !
                 <br>
                 <div>
                   <button class="add-to-cart" data-product-id="14">Ajouter au panier</button></div> <br>
-                <button>  <a href="commande.html?produit=produit14" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+               
+           <form action="commande.html" method="get">
+    <input type="hidden" name="produit" value="air force gros lacet">
+    <button type="submit">Passer votre commande</button>
+</form>
             </div>
         </div>
          <div class="product-card">
-            <img src="paire_25.JPG" alt="Produit 1">
+            <img src="paire_25.jpg" alt="Produit 1">
             <div class="product-info">
                 <div class="product-name"  data-product-id="15">Paire 15</div>
                 <div class="product-description"  data-product-id="15">Description courte du produit 1.</div>
@@ -675,11 +750,15 @@ Merci de choisir PixelMart. Bon shopping !
                 <br>
                 <div>
                   <button class="add-to-cart" data-product-id="15">Ajouter au panier</button></div> <br>
-                <button>  <a href="commande.html?produit=produit15" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+             
+           <form action="commande.html" method="get">
+    <input type="hidden" name="produit" value="air force gros lacet">
+    <button type="submit">Passer votre commande</button>
+</form>
             </div>
         </div>
          <div class="product-card">
-            <img src="paire_26.JPG" alt="Produit 1">
+            <img src="paire_26.jpg" alt="Produit 1">
             <div class="product-info">
                 <div class="product-name"  data-product-id="16">Paire 16</div>
                 <div class="product-description"  data-product-id="16">Description courte du produit 1.</div>
@@ -687,11 +766,15 @@ Merci de choisir PixelMart. Bon shopping !
                 <br>
                 <div>
                   <button class="add-to-cart" data-product-id="16">Ajouter au panier</button></div> <br>
-                <button>  <a href="commande.html?produit=produit16" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+              
+           <form action="commande.html" method="get">
+    <input type="hidden" name="produit" value="air force gros lacet">
+    <button type="submit">Passer votre commande</button>
+</form>
             </div>
         </div>
          <div class="product-card">
-            <img src="paire_27.JPG" alt="Produit 1">
+            <img src="paire_27.jpg" alt="Produit 1">
             <div class="product-info">
                 <div class="product-name"  data-product-id="17">Paire 17</div>
                 <div class="product-description"  data-product-id="17">Description courte du produit 1.</div>
@@ -699,11 +782,15 @@ Merci de choisir PixelMart. Bon shopping !
                 <br>
                 <div>
                   <button class="add-to-cart" data-product-id="17">Ajouter au panier</button></div> <br>
-                <button>  <a href="commande.html?produit=produit17" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+              
+           <form action="commande.html" method="get">
+    <input type="hidden" name="produit" value="air force gros lacet">
+    <button type="submit">Passer votre commande</button>
+</form>
             </div>
         </div>
          <div class="product-card">
-            <img src="paire_28.JPG" alt="Produit 1">
+            <img src="paire_28.jpg" alt="Produit 1">
             <div class="product-info">
                 <div class="product-name"  data-product-id="18">Paire 18</div>
                 <div class="product-description"  data-product-id="18">Description courte du produit 1.</div>
@@ -711,11 +798,15 @@ Merci de choisir PixelMart. Bon shopping !
                 <br>
                 <div>
                   <button class="add-to-cart" data-product-id="18">Ajouter au panier</button></div> <br>
-                <button>  <a href="commande.html?produit=produit18" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+             
+           <form action="commande.html" method="get">
+    <input type="hidden" name="produit" value="air force gros lacet">
+    <button type="submit">Passer votre commande</button>
+</form>
             </div>
         </div>
          <div class="product-card">
-            <img src="paire_29.JPG" alt="Produit 1">
+            <img src="paire_29.jpg" alt="Produit 1">
             <div class="product-info">
                 <div class="product-name"  data-product-id="19">Paire 19</div>
                 <div class="product-description"  data-product-id="19">Description courte du produit 1.</div>
@@ -723,11 +814,15 @@ Merci de choisir PixelMart. Bon shopping !
                 <br>
                 <div>
                   <button class="add-to-cart" data-product-id="19">Ajouter au panier</button></div> <br>
-                <button>  <a href="commande.html?produit=produit19" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+             
+           <form action="commande.html" method="get">
+    <input type="hidden" name="produit" value="air force gros lacet">
+    <button type="submit">Passer votre commande</button>
+</form>
             </div>
         </div>
          <div class="product-card">
-            <img src="paire_30.JPG" alt="Produit 1">
+            <img src="paire_30.jpg" alt="Produit 1">
             <div class="product-info">
                 <div class="product-name"  data-product-id="20">Paire 20</div>
                 <div class="product-description"  data-product-id="1">Description courte du produit 1.</div>
@@ -735,11 +830,15 @@ Merci de choisir PixelMart. Bon shopping !
                 <br>
                 <div>
                   <button class="add-to-cart" data-product-id="20">Ajouter au panier</button></div> <br>
-                <button>  <a href="commande.html?produit=produit20" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+              
+           <form action="commande.html" method="get">
+    <input type="hidden" name="produit" value="air force gros lacet">
+    <button type="submit">Passer votre commande</button>
+</form>
             </div>
         </div>
          <div class="product-card">
-            <img src="paire_31.JPG" alt="Produit 1">
+            <img src="paire_31.jpg" alt="Produit 1">
             <div class="product-info">
                 <div class="product-name"  data-product-id="21">Paire 21</div>
                 <div class="product-description"  data-product-id="21">Description courte du produit 1.</div>
@@ -747,11 +846,15 @@ Merci de choisir PixelMart. Bon shopping !
                 <br>
                 <div>
                   <button class="add-to-cart" data-product-id="21">Ajouter au panier</button></div> <br>
-                <button>  <a href="commande.html?produit=produit21" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+               
+           <form action="commande.html" method="get">
+    <input type="hidden" name="produit" value="air force gros lacet">
+    <button type="submit">Passer votre commande</button>
+</form>
             </div>
         </div>
          <div class="product-card">
-            <img src="paire_32.JPG" alt="Produit 1">
+            <img src="paire_32.jpg" alt="Produit 1">
             <div class="product-info">
                 <div class="product-name"  data-product-id="22">Paire 22</div>
                 <div class="product-description"  data-product-id="22">Description courte du produit 1.</div>
@@ -759,11 +862,15 @@ Merci de choisir PixelMart. Bon shopping !
                 <br>
                 <div>
                   <button class="add-to-cart" data-product-id="22">Ajouter au panier</button></div> <br>
-                <button>  <a href="commande.html?produit=produit22" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+              
+           <form action="commande.html" method="get">
+    <input type="hidden" name="produit" value="air force gros lacet">
+    <button type="submit">Passer votre commande</button>
+</form>
             </div>
         </div>
          <div class="product-card">
-            <img src="paire_33.JPG" alt="Produit 1">
+            <img src="paire_33.jpg" alt="Produit 1">
             <div class="product-info">
                 <div class="product-name"  data-product-id="23">Paire 23</div>
                 <div class="product-description"  data-product-id="23">Description courte du produit 1.</div>
@@ -771,11 +878,15 @@ Merci de choisir PixelMart. Bon shopping !
                 <br>
                 <div>
                   <button class="add-to-cart" data-product-id="23">Ajouter au panier</button></div> <br>
-                <button>  <a href="commande.html?produit=produit23" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+              
+           <form action="commande.html" method="get">
+    <input type="hidden" name="produit" value="air force gros lacet">
+    <button type="submit">Passer votre commande</button>
+</form>
             </div>
         </div>
          <div class="product-card">
-            <img src="paire_34.JPG" alt="Produit 1">
+            <img src="paire_34.jpg" alt="Produit 1">
             <div class="product-info">
                 <div class="product-name"  data-product-id="24">Paire 24</div>
                 <div class="product-description"  data-product-id="23">Description courte du produit 1.</div>
@@ -783,11 +894,15 @@ Merci de choisir PixelMart. Bon shopping !
                 <br>
                 <div>
                   <button class="add-to-cart" data-product-id="24">Ajouter au panier</button></div> <br>
-                <button>  <a href="commande.html?produit=produit24" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+                
+           <form action="commande.html" method="get">
+    <input type="hidden" name="produit" value="air force gros lacet">
+    <button type="submit">Passer votre commande</button>
+</form>
             </div>
         </div>
          <div class="product-card">
-            <img src="paire_35.JPG" alt="Produit 1">
+            <img src="paire_35.jpg" alt="Produit 1">
             <div class="product-info">
                 <div class="product-name"  data-product-id="25">Paire 25</div>
                 <div class="product-description"  data-product-id="25">Description courte du produit 1.</div>
@@ -795,11 +910,15 @@ Merci de choisir PixelMart. Bon shopping !
                 <br>
                 <div>
                   <button class="add-to-cart" data-product-id="25">Ajouter au panier</button></div> <br>
-                <button>  <a href="commande.html?produit=produit25" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+             
+           <form action="commande.html" method="get">
+    <input type="hidden" name="produit" value="air force gros lacet">
+    <button type="submit">Passer votre commande</button>
+</form>
             </div>
         </div>
          <div class="product-card">
-            <img src="paire_36.JPG" alt="Produit 1">
+            <img src="paire_36.jpg" alt="Produit 1">
             <div class="product-info">
                 <div class="product-name"  data-product-id="26">Produit 26</div>
                 <div class="product-description"  data-product-id="26">Description courte du produit 1.</div>
@@ -807,11 +926,15 @@ Merci de choisir PixelMart. Bon shopping !
                 <br>
                 <div>
                   <button class="add-to-cart" data-product-id="26">Ajouter au panier</button></div> <br>
-                <button>  <a href="commande.html?produit=produit26" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+             
+           <form action="commande.html" method="get">
+    <input type="hidden" name="produit" value="air force gros lacet">
+    <button type="submit">Passer votre commande</button>
+</form>
             </div>
         </div>
          <div class="product-card">
-            <img src="paire_37.JPG" alt="Produit 1">
+            <img src="paire_37.jpg" alt="Produit 1">
             <div class="product-info">
                 <div class="product-name"  data-product-id="27">Paire 27</div>
                 <div class="product-description"  data-product-id="1">Description courte du produit 1.</div>
@@ -819,11 +942,15 @@ Merci de choisir PixelMart. Bon shopping !
                 <br>
                 <div>
                   <button class="add-to-cart" data-product-id="27">Ajouter au panier</button></div> <br>
-                <button>  <a href="commande.html?produit=produit27" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+             
+           <form action="commande.html" method="get">
+    <input type="hidden" name="produit" value="air force gros lacet">
+    <button type="submit">Passer votre commande</button>
+</form>
             </div>
         </div>
          <div class="product-card">
-            <img src="paire_38.JPG" alt="Produit 1">
+            <img src="paire_38.jpg" alt="Produit 1">
             <div class="product-info">
                 <div class="product-name"  data-product-id="28">Paire 28</div>
                 <div class="product-description"  data-product-id="28">Description courte du produit 1.</div>
@@ -831,13 +958,15 @@ Merci de choisir PixelMart. Bon shopping !
                 <br>
                 <div>
                   <button class="add-to-cart" data-product-id="28">Ajouter au panier</button></div> <br>
-                <button>  <a href="commande.html?produit=produit28" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+             
+           <form action="commande.html" method="get">
+    <input type="hidden" name="produit" value="air force gros lacet">
+    <button type="submit">Passer votre commande</button>
+</form>
             </div>
         </div>
          <div class="product-card">
-           <video width="320" height="240" >
-    <source src="paire_39.MP4" type="video/mp4">
-</video>
+            <img src="paire_39.jpg" alt="Produit 1">
             <div class="product-info">
                 <div class="product-name"  data-product-id="29">Produit 29</div>
                 <div class="product-description"  data-product-id="29">Description courte du produit 1.</div>
@@ -845,11 +974,15 @@ Merci de choisir PixelMart. Bon shopping !
                 <br>
                 <div>
                   <button class="add-to-cart" data-product-id="29">Ajouter au panier</button></div> <br>
-                <button>  <a href="commande.html?produit=produit29" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+             
+           <form action="commande.html" method="get">
+    <input type="hidden" name="produit" value="air force gros lacet">
+    <button type="submit">Passer votre commande</button>
+</form>
             </div>
         </div>
          <div class="product-card">
-            <img src="paire_40.JPG" alt="Produit 1">
+            <img src="paire_40.jpg" alt="Produit 1">
             <div class="product-info">
                 <div class="product-name"  data-product-id="30">Paire 30</div>
                 <div class="product-description"  data-product-id="30">Description courte du produit 1.</div>
@@ -857,11 +990,15 @@ Merci de choisir PixelMart. Bon shopping !
                 <br>
                 <div>
                   <button class="add-to-cart" data-product-id="30">Ajouter au panier</button></div> <br>
-                <button>  <a href="commande.html?produit=produit30" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+             
+           <form action="commande.html" method="get">
+    <input type="hidden" name="produit" value="air force gros lacet">
+    <button type="submit">Passer votre commande</button>
+</form>
             </div>
         </div>
           <div class="product-card">
-            <img src="paire_41.JPG" alt="Produit 1">
+            <img src="paire_41.jpg" alt="Produit 1">
             <div class="product-info">
                 <div class="product-name"  data-product-id="31">Paire 31</div>
                 <div class="product-description"  data-product-id="31">Description courte du produit 1.</div>
@@ -869,11 +1006,15 @@ Merci de choisir PixelMart. Bon shopping !
                 <br>
                 <div>
                   <button class="add-to-cart" data-product-id="31">Ajouter au panier</button></div> <br>
-                <button>  <a href="commande.html?produit=produit31" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+               
+           <form action="commande.html" method="get">
+    <input type="hidden" name="produit" value="air force gros lacet">
+    <button type="submit">Passer votre commande</button>
+</form>
             </div>
         </div>
           <div class="product-card">
-            <img src="paire_42.JPG" alt="Produit 1">
+            <img src="paire_42.jpg" alt="Produit 1">
             <div class="product-info">
                 <div class="product-name"  data-product-id="32">Paire 32</div>
                 <div class="product-description"  data-product-id="32">Description courte du produit 1.</div>
@@ -881,11 +1022,15 @@ Merci de choisir PixelMart. Bon shopping !
                 <br>
                 <div>
                   <button class="add-to-cart" data-product-id="32">Ajouter au panier</button></div> <br>
-                <button>  <a href="commande.html?produit=produit32" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+              
+           <form action="commande.html" method="get">
+    <input type="hidden" name="produit" value="air force gros lacet">
+    <button type="submit">Passer votre commande</button>
+</form>
             </div>
         </div>
           <div class="product-card">
-            <img src="paire_43.JPG" alt="Produit 1">
+            <img src="paire_43.jpg" alt="Produit 1">
             <div class="product-info">
                 <div class="product-name"  data-product-id="33">Produit 33</div>
                 <div class="product-description"  data-product-id="33">Description courte du produit 1.</div>
@@ -893,11 +1038,15 @@ Merci de choisir PixelMart. Bon shopping !
                 <br>
                 <div>
                   <button class="add-to-cart" data-product-id="33">Ajouter au panier</button></div> <br>
-                <button>  <a href="commande.html?produit=produit33" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+             
+           <form action="commande.html" method="get">
+    <input type="hidden" name="produit" value="air force gros lacet">
+    <button type="submit">Passer votre commande</button>
+</form>
             </div>
         </div>
          <div class="product-card">
-            <img src="paire_44.JPG" alt="Produit 1">
+            <img src="paire_44.jpg" alt="Produit 1">
             <div class="product-info">
                 <div class="product-name"  data-product-id="34">Paire 34</div>
                 <div class="product-description"  data-product-id="34">Description courte du produit 1.</div>
@@ -905,11 +1054,15 @@ Merci de choisir PixelMart. Bon shopping !
                 <br>
                 <div>
                   <button class="add-to-cart" data-product-id="34">Ajouter au panier</button></div> <br>
-                <button>  <a href="commande.html?produit=produit34" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+              
+           <form action="commande.html" method="get">
+    <input type="hidden" name="produit" value="air force gros lacet">
+    <button type="submit">Passer votre commande</button>
+</form>
             </div>
         </div>
          <div class="product-card">
-            <img src="paire_45.JPG" alt="Produit 1">
+            <img src="paire_45.jpg" alt="Produit 1">
             <div class="product-info">
                 <div class="product-name"  data-product-id="35">Paire 35</div>
                 <div class="product-description"  data-product-id="35">Description courte du produit 1.</div>
@@ -917,7 +1070,11 @@ Merci de choisir PixelMart. Bon shopping !
                 <br>
                 <div>
                   <button class="add-to-cart" data-product-id="35">Ajouter au panier</button></div> <br>
-                <button>  <a href="commande.html?produit=produit35" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+             
+           <form action="commande.html" method="get">
+    <input type="hidden" name="produit" value="air force gros lacet">
+    <button type="submit">Passer votre commande</button>
+</form>
             </div>
         </div>
 
@@ -928,7 +1085,7 @@ Merci de choisir PixelMart. Bon shopping !
     <h3>Produits similaires</h3>
     <div class="container">
          <div class="product-card">
-            <img src="paire_1.JPG" alt="Produit 1">
+            <img src="paire_1.jpg" alt="Produit 1">
             <div class="product-info">
                 <div class="product-name"  data-product-id="36">Paire 36</div>
                 <div class="product-description"  data-product-id="36">Description courte du produit 1.</div>
@@ -936,11 +1093,15 @@ Merci de choisir PixelMart. Bon shopping !
                 <br>
                 <div>
                   <button class="add-to-cart" data-product-id="36">Ajouter au panier</button></div> <br>
-                <button>  <a href="commande.html?produit=produit36" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+             
+           <form action="commande.html" method="get">
+    <input type="hidden" name="produit" value="air force gros lacet">
+    <button type="submit">Passer votre commande</button>
+</form>
             </div>
         </div>
           <div class="product-card">
-            <img src="paire_2.JPG" alt="Produit 1">
+            <img src="paire_2.jpg" alt="Produit 1">
             <div class="product-info">
                 <div class="product-name"  data-product-id="37">Produit 37</div>
                 <div class="product-description"  data-product-id="37">Description courte du produit 1.</div>
@@ -948,11 +1109,15 @@ Merci de choisir PixelMart. Bon shopping !
                 <br>
                 <div>
                   <button class="add-to-cart" data-product-id="37">Ajouter au panier</button></div> <br>
-                <button>  <a href="commande.html?produit=produit37" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+               
+           <form action="commande.html" method="get">
+    <input type="hidden" name="produit" value="air force gros lacet">
+    <button type="submit">Passer votre commande</button>
+</form>
             </div>
         </div>
           <div class="product-card">
-            <img src="paire_3.JPG" alt="Produit 1">
+            <img src="paire_3.jpg" alt="Produit 1">
             <div class="product-info">
                 <div class="product-name"  data-product-id="38">Paire 38</div>
                 <div class="product-description"  data-product-id="38">Description courte du produit 1.</div>
@@ -960,12 +1125,16 @@ Merci de choisir PixelMart. Bon shopping !
                 <br>
                 <div>
                   <button class="add-to-cart" data-product-id="38">Ajouter au panier</button></div> <br>
-                <button>  <a href="commande.html?produit=produit38" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+             
+           <form action="commande.html" method="get">
+    <input type="hidden" name="produit" value="air force gros lacet">
+    <button type="submit">Passer votre commande</button>
+</form>
             </div>
         </div>
          
           <div class="product-card">
-            <img src="paire_5.JPG" alt="Produit 1">
+            <img src="paire_5.jpg" alt="Produit 1">
             <div class="product-info">
                 <div class="product-name"  data-product-id="39">Paire 39</div>
                 <div class="product-description"  data-product-id="39">Description courte du produit 1.</div>
@@ -973,11 +1142,15 @@ Merci de choisir PixelMart. Bon shopping !
                 <br>
                 <div>
                   <button class="add-to-cart" data-product-id="39">Ajouter au panier</button></div> <br>
-                <button>  <a href="commande.html?produit=produit39" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+              
+           <form action="commande.html" method="get">
+    <input type="hidden" name="produit" value="air force gros lacet">
+    <button type="submit">Passer votre commande</button>
+</form>
             </div>
         </div>
           <div class="product-card">
-            <img src="paire_6.JPG" alt="Produit 1">
+            <img src="paire_6.jpg" alt="Produit 1">
             <div class="product-info">
                 <div class="product-name"  data-product-id="40">Produit 40</div>
                 <div class="product-description"  data-product-id="40">Description courte du produit 1.</div>
@@ -985,7 +1158,11 @@ Merci de choisir PixelMart. Bon shopping !
                 <br>
                 <div>
                   <button class="add-to-cart" data-product-id="40">Ajouter au panier</button></div> <br>
-                <button>  <a href="commande.html?produit=produit40" style="text-decoration: none;" class="order-button">Passer votre commande </a></button>
+              
+           <form action="commande.html" method="get">
+             <input type="hidden" name="produit" value="air force gros lacet">
+               <button type="submit">Passer votre commande</button>
+           </form>
             </div>
       
     </div>
