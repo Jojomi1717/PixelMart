@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="ultimelogo.webp" type="image/webp">
+    <title>Contactez-nous | Pixel-Mart</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(120deg, #ff9800, #f44336);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        p {
+            text-align: center;
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 500px;
+            animation: slideIn 1s ease-out;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+            background: rgba(255, 255, 255, 0.8);
+            font-size: 1em;
+            color: #333;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 1);
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            background: #2196f3;
+            color: #fff;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #1976d2;
+        }
+
+        @keyframes fadeInDown {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideIn {
+            0% { opacity: 0; transform: translateX(-100%); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        footer {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 0.9em;
+            color: #ccc;
+        }
+
+        footer .social-icons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        footer .social-icons a {
+            background: #fff;
+            color: #333;
+            margin: 0 10px;
+            padding: 10px;
+            border-radius: 50%;
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 30px;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        footer .social-icons a:hover {
+            background: #ffeb3b;
+            transform: scale(1.1);
+        }
+
+        footer .social-icons img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Contactez-nous</h1>
+    <p>Chez Pixel-Mart, nous sommes toujours à votre écoute. N'hésitez pas à nous contacter pour toute question, suggestion ou demande particulière. Nous serons ravis de vous répondre dans les plus brefs délais.</p>
+
+    <form id="contact-form">
+        <input type="text" id="from_name" name="nom" placeholder="Votre nom" required>
+        <input type="text" id="to_name" name="destinataire" value="Pixel-Mart" style="display:none;">
+        <input type="email" id="reply_to" name="email" placeholder="Votre adresse e-mail" required>
+        <textarea id="message" name="message" rows="5" placeholder="Votre message" required></textarea>
+        <button type="submit">Envoyer</button>
+    </form>
+
+    <footer>
+        <p>Suivez-nous sur</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com" target="_blank">
+                <img src="fb.png" alt="Facebook">
+            </a>
+            <a href="https://www.instagram.com" target="_blank">
+                <img src="insta.jfif" alt="Instagram">
+            </a>
+            <a href="https://www.snapchat.com" target="_blank">
+                <img src="snap.jfif" alt="Snapchat">
+            </a>
+        </div>
+        <p>&copy; 2024 Pixel-Mart. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        // Initialiser EmailJS avec votre User ID
+        (function() {
+            emailjs.init('MZVVI3bSwsE-roeZA'); // Remplacez 'YOUR_USER_ID' par votre vrai User ID
+        })();
+
+        // Gestion de l'envoi du formulaire
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Récupération des données du formulaire
+            const fromName = document.getElementById('from_name').value;
+            const toName = document.getElementById('to_name').value;
+            const message = document.getElementById('message').value;
+            const replyTo = document.getElementById('reply_to').value;
+
+            // Envoi des données via EmailJS
+            emailjs.send('service_zdwnmwf', 'template_ta04kjv', {
+                from_name: fromName,
+                to_name: toName,
+                message: message,
+                reply_to: replyTo,
+            })
+            .then(function(response) {
+                alert('Votre message a été envoyé avec succès!', response.status, response.text);
+            }, function(error) {
+                alert('Échec de l\'envoi du message...', error);
+            });
+        });
+    </script>
+
+</body>
+</html>

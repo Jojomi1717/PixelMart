@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Pixel Mart</title>
+    <link rel="icon" href="ultimelogo.webp" type="image/webp">
+    <style>
+        /* Styles de base */
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            background-color: black;
+            position: relative;
+            overflow-x: hidden;
+            margin: 0;
+        }
+
+        /* Filigrane en fond */
+        .background-watermark {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-30deg);
+            color:orange;
+            font-size: 5rem;
+            font-weight: bold;
+            pointer-events: none;
+            user-select: none;
+            white-space: nowrap;
+            z-index: -1;
+        }
+
+        /* Container principal */
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* En-tête avec les icônes de réseaux sociaux */
+        .social-icons {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            display: flex;
+            gap: 1rem;
+            z-index: 1;
+        }
+
+        .social-icons a {
+            text-decoration: none;
+        }
+
+        .social-icons img {
+            width: 30px;
+            height: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.2);
+        }
+
+        /* Titre et texte */
+        h1 {
+            text-align: center;
+            color: #e67e22;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        /* Animation du texte */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animated {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        /* Section des règles */
+        .rules {
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .rules h2 {
+            color: #e67e22;
+            margin-top: 0;
+        }
+
+        /* Conteneur du logo */
+        .logo-container {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: black;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 10000; /* Assure que le logo est au-dessus des autres éléments */
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+     <!-- Conteneur du logo -->
+    <div class="logo-container">
+        <img src="log2.jfif" alt="Logo Pixel Mart">
+    </div>
+
+    <div class="background-watermark">Pixel Mart</div>
+
+    <div class="container">
+        <!-- En-tête avec les icônes de réseaux sociaux -->
+        <div class="social-icons">
+            <a href="https://www.facebook.com" target="_blank">
+                <img src="fb.png" alt="Facebook">
+            </a>
+            <a href="https://www.instagram.com" target="_blank">
+                <img src="insta.jfif" alt="Instagram">
+            </a>
+            <a href="https://www.snapchat.com" target="_blank">
+                <img src="snap.jfif" alt="Snapchat">
+            </a>
+        </div>
+
+        <!-- Contenu de la page -->
+        <h1 class="animated">Bientot sur Pixel-Mart</h1>
+        
+        <p class="animated">Chez Pixel-Mart, nous nous préparons à lancer une gamme d'accessoires de mode qui complétera parfaitement votre garde-robe. De sacs élégants aux bijoux raffinés, en passant par des ceintures et des lunettes de soleil tendance, notre sélection d'accessoires a été pensée pour apporter la touche finale à toutes vos tenues. Chaque article a été minutieusement sélectionné pour son design unique et sa qualité exceptionnelle. Que vous recherchiez des pièces classiques ou des accessoires audacieux qui attirent l'attention, vous trouverez forcément quelque chose qui correspond à votre style personnel. Ces accessoires ne sont pas seulement des compléments, ils sont des éléments clés pour exprimer votre identité et vous démarquer. Nous avons hâte de vous présenter cette collection qui saura transformer vos looks quotidiens en véritables déclarations de mode.
+
+
+Nous sommes sur le point de dévoiler une collection de soins de la peau qui révolutionnera votre routine beauté. Chez Pixel-Mart, nous comprenons l'importance de prendre soin de sa peau, c'est pourquoi nous avons développé une gamme de produits qui répondent aux besoins spécifiques de chaque type de peau. Que vous ayez une peau sèche, grasse, sensible ou mixte, nous avons des solutions qui vous aideront à retrouver une peau éclatante de santé. Nos formules sont enrichies en ingrédients naturels et efficaces, pour nourrir, protéger et revitaliser votre peau en profondeur. Cette collection comprend des nettoyants doux, des sérums concentrés, des crèmes hydratantes et des masques nourrissants, chacun conçu pour offrir des résultats visibles dès les premières utilisations. Nous avons hâte de vous faire découvrir ces soins qui vous permettront de révéler toute la beauté naturelle de votre peau.</p>
+
+       
+    </div>
+<footer>
+        &copy; 2024 Pixel-Mart
+    </footer>
+</body>
+</html>

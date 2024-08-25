@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation</title>
+     <link rel="icon" href="ultimelogo.webp" type="image/webp">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color:whitesmoke;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(45deg, #ff9800, #e68a00);
+            padding: 20px;
+            text-align: center;
+            color: white;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 800px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-list {
+            margin-bottom: 20px;
+        }
+
+        .product-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .product-item h4 {
+            margin: 0;
+        }
+
+        .product-item input {
+            width: 60px;
+            text-align: center;
+            padding: 5px;
+            margin-left: 10px;
+        }
+
+        .button {
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1.2em;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .button:hover {
+            background-color: #e68a00;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Confirmation de commande</h1>
+    </header>
+
+    <div class="container">
+        <h2>Révisez votre commande</h2>
+        <div class="product-list" id="product-list"></div>
+        <button class="button" onclick="confirmOrder()">Valider la commande</button>
+    </div>
+
+    <script>
+        function displayCart() {
+            const cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+            const productList = document.getElementById('product-list');
+            productList.innerHTML = '';
+
+            cart.forEach(item => {
+                const productItem = document.createElement('div');
+                productItem.classList.add('product-item');
+                productItem.innerHTML = `
+                    <h4>${item.name}</h4>
+                    <span>${item.price}€</span>
+                    <input type="number" min="1" value="${item.quantity}" data-name="${item.name}" />
+                `;
+                productList.appendChild(productItem);
+            });
+        }
+
+        function confirmOrder() {
+            const cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+            const updatedCart = Array.from(document.querySelectorAll('.product-item')).map(item => {
+                const name = item.querySelector('h4').textContent;
+                const quantity = parseInt(item.querySelector('input').value, 10);
+                return { name, quantity };
+            });
+
+            // Envoi de la commande via WhatsApp
+            const orderSummary = updatedCart.map(item => `${item.name}: ${item.quantity}`).join(',');
+            const message = `Résumé de la commande:  ${orderSummary}`;
+            window.location.href = `https://wa.me/22941788118?text=${encodeURIComponent(message)}`;
+
+            sessionStorage.removeItem('cart');
+        }
+
+        displayCart();
+    </script>
+    <footer>
+        &copy; 2024 Pixel-Mart
+    </footer>
+</body>
+</html>
