@@ -1,207 +1,154 @@
 <!DOCTYPE html>
-<html langue="fr">
-<tête>
-    <méta jeu de caractères="UTF-8">
-    <méta nom="fenêtre d'affichage" contenu="largeur=largeur-de-l'appareil, échelle-initiale=1,0">
-    <titre>Soins et beauté Pixel-Mart</titre>
-    <lien rel="icône" href="ultimelogo.webp" taper="image/webp">
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soins et beauté Pixel-Mart</title>
+    <link rel="icon" href="ultimelogo.webp" type="image/webp">
     <style>
-        corps {
-            famille de polices: "Poppins", sans-serif;
-            couleur d'arrière-plan: fumée blanche;
-            couleur: #333;
-            marge: 0;
-            rembourrage: 0;
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: whitesmoke;
+            color: #333;
+            margin: 0;
+            padding: 0;
         }
 
-        en-tête {
-            fond: gris;
-            rembourrage: 20px;
-            alignement du texte: centre;
-            couleur: blanc;
-            boîte-ombre: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        header {
+            background: gray;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
             position: relative;
-            haut: 0;
+            top: 0;
             z-index: 1000;
-            animation: slideInDown 1s de sortie;
+            animation: slideInDown 1s ease-out;
         }
 
         .introduction {
-            taille de police: 1,2rem;
-            couleur: #555;
-            largeur maximale: 800px;
-            marge: 0 auto;
-            hauteur de ligne: 1,6;
-            animation: fadeInUp 2s facilité;
-        }
-
-        .introduction {
-            marge: 20px;
-            rembourrage: 20px;
-            couleur d'arrière-plan: rgba(255, 255, 255, 0.8);
-            rayon de la bordure: 5px;
-            boîte-ombre: 0 4px 8px rgba(0, 0, 0, 0.1);
-            animation: fadeInUp 1s entrée-sortie progressive;
-            alignement du texte: centre;
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 800px;
+            margin: 20px auto;
+            line-height: 1.6;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            animation: fadeInUp 1s ease-in-out;
         }
 
         @keyframes fadeInUp {
-            de { transform: translateY(20px); opacité: 0; }
-            à { transformer: translateY(0); opacité: 1; }
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
-        .produits {
-            affichage: grille;
-            grid-template-columns: répéter(ajustement automatique, minmax(250px, 1fr));
-            écart: 20px;
-            rembourrage: 40px;
-        }
-
-        .produit {
-            couleur d'arrière-plan: #ffffff;
-            rembourrage: 20px;
-            rayon de la bordure: 15px;
-            alignement du texte: centre;
+        .slideshow-container {
+            max-width: 100%;
             position: relative;
-            transition: transformation 0.3s, boîte-ombre 0.3s;
-            boîte-ombre: 0 6px 12px rgba(0, 0, 0, 0.1);
+            margin: auto;
+            overflow: hidden;
+            border-radius: 15px;
         }
 
-        .produit img {
-            largeur maximale: 100%;
-            hauteur: auto;
-            rayon de la bordure: 10px;
-            transition: transformation 0.3s;
+        .slides {
+            display: none;
+            width: 100%;
         }
 
-        .produit h3 {
-            marge: 15px 0;
-            taille de police: 1,5em;
-            couleur: #ff9800;
+        .active-slide {
+            display: block;
         }
 
-        .produit p {
-            couleur: #555;
-        }
-
-        .bouton-produit {
-            couleur d'arrière-plan: #ff9800;
-            couleur: blanc;
-            bordure: aucune;
-            rembourrage: 10px 20px;
-            curseur: pointeur;
-            rayon de la bordure: 5px;
-            marge supérieure: 10px;
-            transition: couleur d'arrière-plan 0.3s, transformation 0.3s;
-            taille de police: 1em;
-        }
-
-        .bouton-produit:hover {
-            couleur d'arrière-plan: #e68a00;
-            transformer: translateY(-3px);
-        }
-
-        .produit:hover {
-            transformer: échelle(1.05);
-            boîte-ombre: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        .produit img:hover {
-            transformer: échelle(1.1);
-        }
-
-        .diaporama {
-            position: relative;
-            largeur maximale: 100%;
-            hauteur: 400px;
-            marge: 0 auto;
-            boîte-ombre: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .diaporama img {
-            largeur: 100%;
-            hauteur: 100%;
+        .prev, .next {
+            cursor: pointer;
             position: absolute;
-            opacité: 0;
-            transition: opacité 1s;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
         }
 
-        .diaporama img.actif {
-            opacité: 1;
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
         }
 
-        .bouton-diaporama {
-            position: absolute;
-            haut: 50%;
-            transform: translateY(-50%);
-            fond: rgba(0, 0, 0, 0.5);
-            couleur: blanc;
-            bordure: aucune;
-            rembourrage: 10px;
-            curseur: pointeur;
-            z-index: 100;
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
         }
 
-        .bouton-diaporama.gauche {
-            gauche: 10px;
-        }
-
-        .bouton-diaporama.droite {
-            droit: 10px;
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: gray;
+            color: white;
+            margin-top: 20px;
         }
     </style>
-</tête>
-<corps>
-    <en-tête>
+</head>
+<body>
+    <header>
         <h1>Soins et beauté pour les dames</h1>
-    </en-tête>
-    
-    <div classe="introduction">
-        <p>Nous sommes fiers de vous annoncer l'arrivée imminente de notre gamme exclusive de soins et de produits de beauté pour dames chez Pixel-Mart. Cette collection a été conçue pour répondre aux besoins de toutes les femmes, en leur offrant des produits de qualité qui sublimeront leur beauté naturelle. Que vous soyez à la recherche de soins hydratants pour votre peau, de maquillage longue tenue ou de produits capillaires nourrissants, nous avons tout ce qu'il vous faut pour vous sentir belle au quotidien. Nos produits sont formulés avec des ingrédients soigneusement sélectionnés, respectueux de votre peau et de l'environnement. Nous croyons que chaque femme mérite de se sentir confiante et rayonnante, c'est pourquoi nous avons mis tout notre savoir-faire dans la création de cette collection. Préparez-vous à découvrir des soins qui feront toute la différence dans votre routine beauté, en vous offrant des résultats visibles et durables. Venez découvrir pourquoi nos clients les adorent tant !</p>
+    </header>
+
+    <div class="introduction">
+        <p>Nous sommes fiers de vous annoncer l'arrivée imminente de notre gamme exclusive de soins et de produits de beauté pour dames chez Pixel-Mart...</p>
     </div>
 
-    <div classe="diaporama">
-        <img src="paire_8.JPG" autre="Panier Cool" classe="actif">
-        <img src="paire_38.JPG" autre="Panier Méga Cool">
-        <img src="paire_38.JPG" autre="Panier Méga Cool">
-        <!-- Ajoutez d'autres images si nécessaire -->
-        <bouton classe="bouton-diaporama gauche" onclick="imagePrecedente()">&#10094;</bouton>
-        <bouton classe="bouton-diaporama droite" onclick="imageSuivante()">&#10095;</bouton>
+    <div class="slideshow-container">
+        <div class="slides active-slide">
+            <img src="paire_8.JPG" alt="Panier Cool" style="width:100%">
+        </div>
+
+        <div class="slides">
+            <img src="paire_38.JPG" alt="Panier méga cool" style="width:100%">
+        </div>
+
+        <a class="prev">&#10094;</a>
+        <a class="next">&#10095;</a>
     </div>
 
-    <div classe="produits">
-        <!-- Contenu des produits ici -->
-    </div>
-
-    <pied de page>
+    <footer>
         © Pixel-Mart 2024
-    </pied de page>
+    </footer>
 
     <script>
-        let index = 0;
-        const images = document.querySelectorAll('.diaporama img');
+        let slideIndex = 0;
+        const slides = document.getElementsByClassName("slides");
+        const prevButton = document.querySelector(".prev");
+        const nextButton = document.querySelector(".next");
 
-        function montrerImage(indice) {
-            images.forEach((img, i) => {
-                img.classList.remove('actif');
-                if (i === indice) {
-                    img.classList.add('actif');
-                }
-            });
+        function showSlide(index) {
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("active-slide");
+            }
+            slides[index].classList.add("active-slide");
         }
 
-        function imageSuivante() {
-            index = (index + 1) % images.length;
-            montrerImage(index);
+        function nextSlide() {
+            slideIndex = (slideIndex + 1) % slides.length;
+            showSlide(slideIndex);
         }
 
-        function imagePrecedente() {
-            index = (index - 1 + images.length) % images.length;
-            montrerImage(index);
+        function prevSlide() {
+            slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+            showSlide(slideIndex);
         }
 
-        // Démarrer le diaporama
-        setInterval(imageSuivante, 3000); // Changer d'image toutes les 3 secondes
+        nextButton.addEventListener("click", nextSlide);
+        prevButton.addEventListener("click", prevSlide);
+
+        // Automatic Slideshow
+        setInterval(nextSlide, 3000); // Change image every 3 seconds
     </script>
-</corps>
+</body>
 </html>
