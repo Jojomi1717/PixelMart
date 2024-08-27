@@ -3,55 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Baskets Pixel-Mart</title>
-     <link rel="icon" href="ultimelogo.webp" type="image/webp">
+    <title>Baskets</title>
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background-color:whitesmoke;
+            background-color: #f0f0f0;
             color: #333;
             margin: 0;
             padding: 0;
         }
 
         header {
-             background: gray;
-    padding: 20px;
-    text-align: center;
-    color: white;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    position: relative;
-    top: 0;
-    z-index: 1000;
-    animation: slideInDown 1s ease-out;
-        }
- .intro {
-            margin: 20px;
+            background: linear-gradient(45deg, #ff9800, #e68a00);
             padding: 20px;
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            animation: fadeInUp 1s ease-in-out;
             text-align: center;
-        }
-        .intro {
-            font-size: 1.2rem;
-            color: #555;
-            max-width: 800px;
-            margin: 0 auto;
-            line-height: 1.6;
-            animation: fadeInUp 2s ease;
-        }
-  @keyframes fadeInUp {
-            from { transform: translateY(20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+            color: white;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
 
-        @keyframes bounceIn {
-            0% { transform: scale(0.9); opacity: 0; }
-            60% { transform: scale(1.1); opacity: 1; }
-            100% { transform: scale(1); }
+        .intro {
+            padding: 20px;
+            margin: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 2s ease-in-out;
         }
+
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -92,7 +72,7 @@
         }
 
         .product button {
-            background-color: skyblue;
+            background-color: #ff9800;
             color: white;
             border: none;
             padding: 10px 20px;
@@ -158,29 +138,22 @@
         }
 
         .checkout-button {
-            display: none;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            margin: 0;
-            padding: 15px;
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
             background-color: #ff9800;
             color: white;
             border: none;
-            border-radius: 0;
+            border-radius: 5px;
             font-size: 1.2em;
             cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
             text-align: center;
-            transition: background-color 0.3s;
-        }
-
-        .checkout-button.show {
-            display: block;
         }
 
         .checkout-button:hover {
             background-color: #e68a00;
+            transform: translateY(-3px);
         }
 
         @keyframes shake {
@@ -193,16 +166,6 @@
             animation: shake 0.5s ease;
         }
     </style>
-      <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script> 
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y3YXHN4B8Z"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-Y3YXHN4B8Z');
-</script>
 </head>
 <body>
     <header>
@@ -210,194 +173,85 @@
     </header>
     
     <div class="intro">
-        <p>Chez Pixel-Mart, nous sommes fiers de vous présenter notre nouvelle gamme de baskets, conçue pour allier style, confort et performance. Nos baskets ne sont pas seulement des chaussures; elles incarnent un mode de vie dynamique et moderne, où l'élégance rencontre la fonctionnalité.
-         Venez découvrir pourquoi nos clients les adorent tant !</p>
+        <p>Découvrez nos baskets de haute qualité, alliant style et confort. Idéales pour toutes vos activités, nos baskets sont conçues avec les meilleurs matériaux pour offrir un support optimal à vos pieds. Venez découvrir pourquoi nos clients les adorent tant !</p>
     </div>
     
     <div class="products">
         <div class="product">
-    <img src="paire_40.JPG" alt="Basket">
-    <h3>Jordan 11 Low</h3>
-    <p>Prix : 16 000 XOF</p>
-    <p>Une icône revisitée pour un look raffiné.</p>
-    <button onclick="addToCart('Jordan 11 Low', 16000)">Ajouter au panier</button>
-    <button onclick="redirectToConfirmation('Jordan 11 Low', 16000)">Commander</button>
-</div>
+            <img src="paire_8.jpg" alt="Basket">
+            <h3>Basket Cool</h3>
+            <p>Prix : 50€</p>
+            <p>Description du produit.</p>
+            <button onclick="addToCart('Basket Cool', 50)">Ajouter au panier</button>
+            <button onclick="redirectToConfirmation()">Commander</button>
+        </div>
+        <div class="product">
+            <img src="paire_38.jpg" alt="Basket">
+            <h3>Basket mega Cool</h3>
+            <p>Prix : 40€</p>
+            <p>Description du produit.</p>
+            <button onclick="addToCart('Basket mega Cool', 40)">Ajouter au panier</button>
+            <button onclick="redirectToConfirmation()">Commander</button>
+        </div>
+        <div class="product">
+            <img src="paire_28.jpg" alt="Basket">
+            <h3>Basket super Cool</h3>
+            <p>Prix : 60€</p>
+            <p>Description du produit.</p>
+            <button onclick="addToCart('Basket super Cool', 60)">Ajouter au panier</button>
+            <button onclick="redirectToConfirmation()">Commander</button>
+        </div>
+        <div class="product">
+            <img src="paire_28.jpg" alt="Basket">
+            <h3>Basket super Cool</h3>
+            <p>Prix : 60€</p>
+            <p>Description du produit.</p>
+            <button onclick="addToCart('Basket super Cool', 60)">Ajouter au panier</button>
+            <button onclick="redirectToConfirmation()">Commander</button>
+        </div>
+        <div class="product">
+            <img src="paire_28.jpg" alt="Basket">
+            <h3>Basket super Cool</h3>
+            <p>Prix : 60€</p>
+            <p>Description du produit.</p>
+            <button onclick="addToCart('Basket super Cool', 60)">Ajouter au panier</button>
+            <button onclick="redirectToConfirmation()">Commander</button>
+        </div>
+        <div class="product">
+            <img src="paire_28.jpg" alt="Basket">
+            <h3>Basket super Cool</h3>
+            <p>Prix : 60€</p>
+            <p>Description du produit.</p>
+            <button onclick="addToCart('Basket super Cool', 60)">Ajouter au panier</button>
+            <button onclick="redirectToConfirmation()">Commander</button>
+        </div>
+        <div class="product">
+            <img src="paire_28.jpg" alt="Basket">
+            <h3>Basket super Cool</h3>
+            <p>Prix : 60€</p>
+            <p>Description du produit.</p>
+            <button onclick="addToCart('Basket super Cool', 60)">Ajouter au panier</button>
+            <button onclick="redirectToConfirmation()">Commander</button>
+        </div>
+        <div class="product">
+            <img src="paire_28.jpg" alt="Basket">
+            <h3>Basket super Cool</h3>
+            <p>Prix : 60€</p>
+            <p>Description du produit.</p>
+            <button onclick="addToCart('Basket super Cool', 60)">Ajouter au panier</button>
+            <button onclick="redirectToConfirmation()">Commander</button>
+        </div>
+        <!-- Répétez pour chaque produit -->
+    </div>
 
-<div class="product">
-    <img src="paire_35.JPG" alt="Basket">
-    <h3>Nike Air Max Plus</h3>
-    <p>Prix : 13 000 XOF</p>
-    <p>Un design audacieux avec un confort exceptionnel.</p>
-    <button onclick="addToCart('Nike Air Max Plus', 13000)">Ajouter au panier</button>
-    <button onclick="redirectToConfirmation('Nike Air Max Plus', 13000)">Commander</button>
-</div>
+    <button class="checkout-button" onclick="redirectToCheckout()">Passer à la caisse</button>
 
-<div class="product">
-    <img src="paire_1.JPG" alt="Basket">
-    <h3>Nike Nocte Hot Step</h3>
-    <p>Prix : 16 000 XOF</p>
-    <p>Performance et style se rencontrent dans cette paire unique.</p>
-    <button onclick="addToCart('Nike Nocte Hot Step', 16000)">Ajouter au panier</button>
-    <button onclick="redirectToConfirmation('Nike Nocte Hot Step', 16000)">Commander</button>
-</div>
-
-<div class="product">
-    <img src="paire_38.JPG" alt="Basket">
-    <h3>Jordan 12</h3>
-    <p>Prix : 16 000 XOF</p>
-    <p>Une sneaker légendaire, symbole de performance et d'élégance.</p>
-    <button onclick="addToCart('Jordan 12', 16000)">Ajouter au panier</button>
-    <button onclick="redirectToConfirmation('Jordan 12', 16000)">Commander</button>
-</div>
-
-<div class="product">
-    <img src="paire_18.JPG" alt="Basket">
-    <h3>Jordan 9</h3>
-    <p>Prix : 16 000 XOF</p>
-    <p>Le modèle mythique pour les passionnés de basket.</p>
-    <button onclick="addToCart('Jordan 9', 16000)">Ajouter au panier</button>
-    <button onclick="redirectToConfirmation('Jordan 9', 16000)">Commander</button>
-</div>
-
-<div class="product">
-    <img src="paire_25.JPG" alt="Basket">
-    <h3>Bape Sta</h3>
-    <p>Prix : 13 000 XOF</p>
-    <p>Un design audacieux pour affirmer votre style.</p>
-    <button onclick="addToCart('Bape Sta', 13000)">Ajouter au panier</button>
-    <button onclick="redirectToConfirmation('Bape Sta', 13000)">Commander</button>
-</div>
-
-<div class="product">
-    <img src="paire_15.JPG" alt="Basket">
-    <h3>Nike SB Dunk</h3>
-    <p>Prix : 14 000 XOF</p>
-    <p>Skate et streetwear se fusionnent dans cette chaussure iconique.</p>
-    <button onclick="addToCart('Nike SB Dunk', 14000)">Ajouter au panier</button>
-    <button onclick="redirectToConfirmation('Nike SB Dunk', 14000)">Commander</button>
-</div>
-
-<div class="product">
-    <img src="paire_41.JPG" alt="Basket">
-    <h3>Adidas Yeezy Original</h3>
-    <p>Prix : 14 000 XOF</p>
-    <p>L'innovation rencontre le confort dans ce modèle emblématique.</p>
-    <button onclick="addToCart('Adidas Yeezy Original', 14000)">Ajouter au panier</button>
-    <button onclick="redirectToConfirmation('Adidas Yeezy Original', 14000)">Commander</button>
-</div>
-
-<div class="product">
-    <img src="paire_43.JPG" alt="Basket">
-    <h3>Jordan 1</h3>
-    <p>Prix : 15 000 XOF</p>
-    <p>L'icône de la culture sneaker, toujours au sommet.</p>
-    <button onclick="addToCart('Jordan 1', 15000)">Ajouter au panier</button>
-    <button onclick="redirectToConfirmation('Jordan 1', 15000)">Commander</button>
-</div>
-
-<div class="product">
-    <img src="paire_37.JPG" alt="Basket">
-    <h3>Jordan 1 Rétro</h3>
-    <p>Prix : 15 000 XOF</p>
-    <p>Le retour d'une légende, fidèle à ses racines.</p>
-    <button onclick="addToCart('Jordan 1 Rétro', 15000)">Ajouter au panier</button>
-    <button onclick="redirectToConfirmation('Jordan 1 Rétro', 15000)">Commander</button>
-</div>
-
-<div class="product">
-    <img src="paire_28.JPG" alt="Basket">
-    <h3>Jordan 11</h3>
-    <p>Prix : 15 000 XOF</p>
-    <p>Un style intemporel avec une touche de modernité.</p>
-    <button onclick="addToCart('Jordan 11', 15000)">Ajouter au panier</button>
-    <button onclick="redirectToConfirmation('Jordan 11', 15000)">Commander</button>
-</div>
-
-<div class="product">
-    <img src="paire_45.JPG" alt="Basket">
-    <h3>Adidas Yeezy Original</h3>
-    <p>Prix : 12 000 XOF</p>
-    <p>Le mariage parfait entre style et confort.</p>
-    <button onclick="addToCart('Adidas Yeezy Original', 12000)">Ajouter au panier</button>
-    <button onclick="redirectToConfirmation('Adidas Yeezy Original', 12000)">Commander</button>
-</div>
-
-<div class="product">
-    <img src="paire_5.JPG" alt="Basket">
-    <h3>Jordan Retro 4</h3>
-    <p>Prix : 16 000 XOF</p>
-    <p>Rétro, mais toujours aussi frais et contemporain.</p>
-    <button onclick="addToCart('Jordan Retro 4', 16000)">Ajouter au panier</button>
-    <button onclick="redirectToConfirmation('Jordan Retro 4', 16000)">Commander</button>
-</div>
-
-<div class="product">
-    <img src="paire_6.JPG" alt="Basket">
-    <h3>Buy Z OGY Retro 4</h3>
-    <p>Prix : 16 000 XOF</p>
-    <p>Le modèle parfait pour les amateurs de rétros authentiques.</p>
-    <button onclick="addToCart('Buy Z OGY Retro 4', 16000)">Ajouter au panier</button>
-    <button onclick="redirectToConfirmation('Buy Z OGY Retro 4', 16000)">Commander</button>
-</div>
-
-<div class="product">
-    <img src="paire_10.JPG" alt="Basket">
-    <h3>Adidas Forum Bad Bunny</h3>
-    <p>Prix : 15 000 XOF</p>
-    <p>Collaboration exclusive pour un style unique.</p>
-    <button onclick="addToCart('Adidas Forum Bad Bunny', 15000)">Ajouter au panier</button>
-    <button onclick="redirectToConfirmation('Adidas Forum Bad Bunny', 15000)">Commander</button>
-</div>
-
-<div class="product">
-    <img src="paire_32.JPG" alt="Basket">
-    <h3>Nike SB Dunk</h3>
-    <p>Prix : 13 000 XOF</p>
-    <p>La chaussure incontournable pour les fans de skate.</p>
-    <button onclick="addToCart('Nike SB Dunk', 13000)">Ajouter au panier</button>
-    <button onclick="redirectToConfirmation('Nike SB Dunk', 13000)">Commander</button>
-</div>
-
-<div class="product">
-    <img src="paire_13.JPG" alt="Basket">
-    <h3>Adidas Yeezy Boost 700</h3>
-    <p>Prix : 14 000 XOF</p>
-    <p>Allie performance et innovation pour un confort exceptionnel.</p>
-    <button onclick="addToCart('Adidas Yeezy Boost 700', 14000)">Ajouter au panier</button>
-    <button onclick="redirectToConfirmation('Adidas Yeezy Boost 700', 14000)">Commander</button>
-</div>
-
-<div class="product">
-    <img src="paire_7.JPG" alt="Basket">
-    <h3>Air Force One Gros Lacet</h3>
-    <p>Prix : 14 000 XOF</p>
-    <p>Le classique revisité avec une touche moderne.</p>
-    <button onclick="addToCart('Air Force One Gros Lacet', 14000)">Ajouter au panier</button>
-    <button onclick="redirectToConfirmation('Air Force One Gros Lacet', 14000)">Commander</button>
-</div>
-
-<div class="product">
-    <img src="paire_31.JPG" alt="Basket">
-    <h3>Jordan 1</h3>
-    <p>Prix : 15 000 XOF</p>
-    <p>Encore plus emblématique avec son design intemporel.</p>
-    <button onclick="addToCart('Jordan 1', 15000)">Ajouter au panier</button>
-    <button onclick="redirectToConfirmation('Jordan 1', 15000)">Commander</button>
-</div>
-
-<div class="product">
-    <img src="paire_9.JPG" alt="Basket">
-    <h3>Adidas Forum Bad Bunny</h3>
-    <p>Prix : 15 000 XOF</p>
-    <p>Une collaboration qui marque les esprits.</p>
-    <button onclick="addToCart('Adidas Forum Bad Bunny', 15000)">Ajouter au panier</button>
-    <button onclick="redirectToConfirmation('Adidas Forum Bad Bunny', 15000)">Commander</button>
-</div>
-
+    <div class="cart-icon" id="cart-icon">
+        <img src="panié2.jfif" alt="Panier">
+        <div class="cart-count" id="cart-count">0</div>
     </div>
     
-   <script>
+    <script>
         let cart = [];
 
         function addToCart(productName, productPrice) {
@@ -425,9 +279,8 @@
             setTimeout(() => cartIcon.classList.remove('shake'), 500);
         }
 
-        function redirectToConfirmation(productName, productPrice) {
-            const singleProductCart = [{ name: productName, price: productPrice, quantity: 1 }];
-            sessionStorage.setItem('cart', JSON.stringify(singleProductCart));
+        function redirectToConfirmation() {
+            sessionStorage.setItem('cart', JSON.stringify(cart));
             window.location.href = 'confirmation.html';
         }
 
@@ -435,14 +288,7 @@
             sessionStorage.setItem('cart', JSON.stringify(cart));
             window.location.href = 'cheickout.html';
         }
-
-        function toggleCheckoutButton() {
-            const checkoutButton = document.getElementById('checkout-button');
-            checkoutButton.classList.toggle('show');
-        }
     </script>
-    <footer>
-        &copy; 2024 Pixel-Mart
-    </footer>
 </body>
 </html>
+
