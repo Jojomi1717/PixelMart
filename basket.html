@@ -3,35 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Baskets</title>
+    <title>Baskets Pixel-Mart</title>
+     <link rel="icon" href="ultimelogo.webp" type="image/webp">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f0f0f0;
+            background-color:whitesmoke;
             color: #333;
             margin: 0;
             padding: 0;
         }
 
         header {
-            background: gray;
-            padding: 20px;
-            text-align: center;
-            color: white;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            position: relative;
+             background: gray;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    top: 0;
+    z-index: 1000;
+    animation: slideInDown 1s ease-out;
         }
-
-        .intro {
-            padding: 20px;
+ .intro {
             margin: 20px;
-            background-color: #ffffff;
-            border-radius: 10px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease-in-out;
             text-align: center;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 2s ease-in-out;
+        }
+        .intro {
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+            animation: fadeInUp 2s ease;
+        }
+  @keyframes fadeInUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
+        @keyframes bounceIn {
+            0% { transform: scale(0.9); opacity: 0; }
+            60% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); }
+        }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -138,22 +158,29 @@
         }
 
         .checkout-button {
-            display: block;
-            margin: 20px auto;
-            padding: 10px 20px;
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: 0;
+            padding: 15px;
             background-color: #ff9800;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 0;
             font-size: 1.2em;
             cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
             text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        .checkout-button.show {
+            display: block;
         }
 
         .checkout-button:hover {
             background-color: #e68a00;
-            transform: translateY(-3px);
         }
 
         @keyframes shake {
@@ -166,6 +193,16 @@
             animation: shake 0.5s ease;
         }
     </style>
+      <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script> 
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y3YXHN4B8Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Y3YXHN4B8Z');
+</script>
 </head>
 <body>
     <header>
@@ -173,9 +210,10 @@
     </header>
     
     <div class="intro">
-        <p>Découvrez nos baskets de haute qualité, alliant style et confort. Idéales pour toutes vos activités, nos baskets sont conçues avec les meilleurs matériaux pour offrir un support optimal à vos pieds. Venez découvrir pourquoi nos clients les adorent tant !</p>
+        <p>Chez Pixel-Mart, nous sommes fiers de vous présenter notre nouvelle gamme de baskets, conçue pour allier style, confort et performance. Nos baskets ne sont pas seulement des chaussures; elles incarnent un mode de vie dynamique et moderne, où l'élégance rencontre la fonctionnalité.
+         Venez découvrir pourquoi nos clients les adorent tant !</p>
     </div>
-    
+     
     <div class="products">
         <div class="product">
     <img src="paire_40.JPG" alt="Basket">
@@ -362,6 +400,8 @@
         <img src="panié2.jfif" alt="Panier">
         <div class="cart-count" id="cart-count">0</div>
     </div>
+
+   
     
     <script>
         let cart = [];
