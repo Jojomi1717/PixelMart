@@ -145,6 +145,30 @@
                 width: 10px;
             }
         }
+          .home-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.home-button img {
+    width: 30px;
+    height: 30px;
+}
+
+.home-button:hover {
+    background-color: #e68a00;
+    transform: scale(1.1);
+}
     </style>
  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script> 
     <!-- Google tag (gtag.js) -->
@@ -160,6 +184,9 @@
 <body>
     <header>
         <h1>Vetements tendance </h1>
+          <div class="home-button">
+    <a href="index.html">
+        <img src="home1.png" alt="Home" title="Retour à l'accueil">
     </header>
     
     <div class="introduction">
