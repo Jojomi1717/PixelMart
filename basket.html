@@ -356,14 +356,12 @@
     <button onclick="addToCart('Adidas Forum Bad Bunny', 15000)">Ajouter au panier</button>
     <button onclick="redirectToConfirmation('Adidas Forum Bad Bunny', 15000)">Commander</button>
 </div>
-<button class="checkout-button" id="checkout-button" onclick="redirectToCheckout()">Passer à la caisse</button>
+  <button class="checkout-button" id="checkout-button" onclick="redirectToCheckout()">Passer à la caisse</button>
 
     <div class="cart-icon" id="cart-icon" onclick="toggleCheckoutButton()">
-<div class="cart-icon" id="cart-icon">
         <img src="panié2.jfif" alt="Panier">
         <div class="cart-count" id="cart-count">0</div>
     </div>
-
     
     <script>
         let cart = [];
@@ -393,8 +391,9 @@
             setTimeout(() => cartIcon.classList.remove('shake'), 500);
         }
 
-        function redirectToConfirmation() {
-            sessionStorage.setItem('cart', JSON.stringify(cart));
+        function redirectToConfirmation(productName, productPrice) {
+            const singleProductCart = [{ name: productName, price: productPrice, quantity: 1 }];
+            sessionStorage.setItem('cart', JSON.stringify(singleProductCart));
             window.location.href = 'confirmation.html';
         }
 
@@ -402,7 +401,14 @@
             sessionStorage.setItem('cart', JSON.stringify(cart));
             window.location.href = 'cheickout.html';
         }
+
+        function toggleCheckoutButton() {
+            const checkoutButton = document.getElementById('checkout-button');
+            checkoutButton.classList.toggle('show');
+        }
     </script>
+    <footer>
+        &copy; 2024 Pixel-Mart
+    </footer>
 </body>
 </html>
-
