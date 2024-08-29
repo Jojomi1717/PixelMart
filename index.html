@@ -244,7 +244,60 @@
                 transform: translateY(0);
             }
         }
+/* Style pour la section de suggestions */
+.request-item {
+    background-color: #f7f7f7;
+    padding: 40px;
+    margin: 40px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
 
+.request-content h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.request-content p {
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+#request-form input[type="text"] {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+#request-form input[type="text"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+#request-form input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#request-form input[type="submit"]:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
     </style>
       <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script> 
     <!-- Google tag (gtag.js) -->
@@ -278,6 +331,28 @@
         <div class="category" onclick="location.href='gadget.html'">Gadgets Électroniques</div>
         <div class="category" onclick="location.href='soin_beuté.html'">Soins de Beauté</div>
     </section>
+    <section class="request-item">
+    <div class="request-content">
+        <h2>Vous ne trouvez pas ce que vous cherchez ?</h2>
+        <p>Envoyez-nous le nom du produit que vous recherchez ou toute autre suggestion !</p>
+        <form id="request-form" onsubmit="sendWhatsAppMessage(); return false;">
+            <input type="text" id="product-name" placeholder="Nom du produit ou suggestion" required>
+            <input type="submit" value="Envoyer sur WhatsApp">
+        </form>
+    </div>
+</section>
+
+<script>
+    function sendWhatsAppMessage() {
+        var productName = document.getElementById('product-name').value;
+        var phoneNumber = "votre-numero-whatsapp"; // Remplacez par votre numéro WhatsApp
+        var message = "Bonjour, je recherche ce produit ou j'ai une suggestion : " + productName;
+
+        var whatsappURL = "https://api.whatsapp.com/send?phone=" + phoneNumber + "&text=" + encodeURIComponent(message);
+
+        window.open(whatsappURL, '_blank');
+    }
+</script>
     <footer>
         <p>&copy; 2024 Pixel-Mart. Tous droits réservés.</p>
     </footer>
