@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html langue="fr">
+<tête>
+    <méta jeu de caractères="UTF-8">
+       <link rel="icon" href="ultimelogo.webp" type="image/webp">
+    <méta nom="fenêtre d'affichage"contenu="largeur=largeur-de-l'appareil, échelle-initiale=1,0">
+    <titre>Tirage au Sort - Sélection de Trois Gagnants</titre>
+    <style>
+        corps {
+            famille de polices : Arial, sans-serif ;
+            couleur d'arrière-plan : #f5f5f5 ;
+            alignement du texte : centre ;
+            marge: 0;
+            rembourrage : 0 ;
+        }
+
+        .conteneur {
+            largeur : 80 % ;
+            marge: 50px auto;
+            rembourrage : 20 px ;
+            couleur d'arrière-plan : blanc ;
+            boîte-ombre : 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            couleur: #333;
+        }
+
+        zone de texte {
+            largeur : 100 % ;
+            hauteur : 150px ;
+            marge: 20px 0;
+            rembourrage : 10 px ;
+            bordure : 1px solide #ccc ;
+            rayon de la bordure : 4 px ;
+            taille de police : 16 px ;
+        }
+
+        bouton {
+            rembourrage : 10 px 20 px ;
+            taille de police : 18 px ;
+            couleur d'arrière-plan : #4CAF50 ;
+            couleur : blanc ;
+            bordure : aucune ;
+            rayon de la bordure : 4 px ;
+            curseur : pointeur ;
+        }
+
+        bouton:survoler {
+            couleur d'arrière-plan : #45a049 ;
+        }
+
+        #résultat {
+            taille de police : 20 px ;
+            couleur: #333;
+            marge supérieure : 20 px ;
+        }
+
+        #chargement {
+            affichage : aucun ;
+            taille de police : 24 px ;
+            couleur: #888;
+            marge supérieure : 20 px ;
+        }
+    </style>
+</tête>
+<corps>
+    <div classe="récipient">
+        <h1>Jeu Concours - Tirage au Sort</h1>
+        <zone de texte identifiant="participants"espace réservé="Entrez les noms des participants, un par ligne"></zone de texte>
+        <bouton sur clic="tirerAuSort()">Tirer au sort</bouton>
+        <div identifiant="chargement">Chargement...</div>
+        <div identifiant="résultat"></div>
+    </div>
+
+    <!-- Intégration de la bibliothèque toile-confetti -->
+    <scénario source="toile-confetti.browser.min.js"></scénario>
+
+    <scénario>
+        fonction tirerAuSort() {
+            // Masquer le bouton et afficher le message de chargement
+            document.sélecteur de requête('bouton').style.afficher = 'aucun';
+            document.obtenirElementById('chargement').style.afficher = 'bloc';
+
+            définirTimeout(fonction() {
+                // Le nom spécifique que tu veux privilégier
+                constante nomSpécifique = "Roy Savi";
+
+                // Récupérer le contenu de la zone de texte
+                constante zone de texte = document.obtenirElementById(« participants »).valeur;
+
+                // Diviser le texte en une liste de noms, en séparant par les sauts de ligne
+                laisser participants = zone de texte.diviser('\n').filtre(nom => nom.garniture() !== " ");
+
+                laisser gagnants = [];
+
+                // Sélectionner les gagnants
+                pour (laisser je = 0; je < 3; je++) {
+                    laisser gagnant;
+                    si (participants.comprend(nomSpécifique) && !gagnants.comprend(nomSpécifique)) {
+                        gagnant = nomSpécifique; // Choisir le nom spécifique comme gagnant
+                        participants = participants.filtre(nom => nom !== nomSpécifique); // Supprimer le gagnant de la liste
+                    } autre {
+                        gagnant = participants[Mathématiques.sol(Mathématiques.aléatoire() * participants.longueur)];
+                        participants = participants.filtre(nom => nom !== gagnant); // Supprimer le gagnant de la liste
+                    }
+                    gagnants.pousser(gagnant);
+                }
+
+                // Masquer le message de chargement
+                document.obtenirElementById('chargement').style.afficher = 'aucun';
+
+                // Afficher les résultats des gagnants
+                constante résultatDiv = document.obtenirElementById('résultat');
+                résultatDiv.HTML interne = '';
+
+                gagnants.pour chaque((gagnant, indice) => {
+                    définirTimeout(() => {
+                        résultatDiv.HTML interne += `<p>🎉 Gagnant${indice + 1}:${gagnant}🎉</p>`;
+                        lancerConfettis();
+                    }, indice * 6000); // 6 secondes d'intervalle entre chaque gagnant
+                });
+            }, 5000); // Attendez 5 secondes
+        }
+
+        fonction lancerConfettis() {
+            constante durée = 5 * 1000; // 5 secondes de pluie de confettis
+            constante animationFin = Date.maintenant() + durée;
+            constante défauts = { démarrerVelocity:30, propagé:360, tiques:60, z-index:0 };
+
+            fonction aléatoireDansRange(min, max) {
+                retour Mathématiques.aléatoire() * (max - min) + min;
+            }
+
+            constante intervalle = définirIntervalle(fonction() {
+                constante temps restant = animationFin - Date.maintenant();
+
+                si (temps restant <= 0) {
+                    retour Intervalle d'effacement(intervalle);
+                }
+
+                constante nombre de particules = 50 * (temps restant / durée);
+
+                // Depuis le centre
+                confettis(Objet.attribuer({}, défauts, {
+                    nombre de particules,
+                    origine:{ x:aléatoireDansRange(0,1, 0,3), et:Mathématiques.aléatoire() - 0,2 }
+                }));
+                confettis(Objet.attribuer({}, défauts, {
+                    nombre de particules,
+                    origine:{ x:aléatoireDansRange(0,7, 0,9), et:Mathématiques.aléatoire() - 0,2 }
+                }));
+            }, 250);
+        }
+    </scénario>
+</corps>
+</html>
