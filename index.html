@@ -1,361 +1,208 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pixel-Mart</title>
-    <link rel="icon" href="ultimelogo.webp" type="image/webp">
+    <title>Document</title>
+
     <style>
-        /* Corps de la page */
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #ffffff;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        header {
-            background: #333;
-            padding: 20px;
-            text-align: center;
-            color: white;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            animation: slideInDown 1s ease-out;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            margin: 0;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            background-color: #444;
-            overflow: hidden;
-        }
-
-        nav ul li {
-            position: relative;
-        }
-
-        nav ul li a {
-            display: block;
-            padding: 15px 20px;
-            color: white;
-            text-decoration: none;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        nav ul li a:hover {
-            background-color: #ff9800;
-            transform: scale(1.1);
-        }
-
-        nav ul li:hover > ul {
-            display: block;
-        }
-
-        nav ul ul {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #444;
-            z-index: 1000;
-            opacity: 0;
-            transform: translateY(-10px);
-            transition: opacity 0.3s ease, transform 0.3s ease;
-        }
-
-        nav ul li:hover > ul {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        section.description {
-            margin: 20px;
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            animation: fadeInUp 1s ease-in-out;
-            text-align: center;
-        }
-
-        section.description h2 {
-            font-size: 2.8rem;
-            color: #e67e22;
-            margin-bottom: 1rem;
-            animation: bounceIn 1.5s ease;
-        }
-
-        section.description p {
-            font-size: 1.2rem;
-            color: #555;
-            max-width: 800px;
-            margin: 0 auto;
-            line-height: 1.6;
-            animation: fadeInUp 2s ease;
-        }
-
-        @keyframes fadeInUp {
-            from { transform: translateY(20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        @keyframes bounceIn {
-            0% { transform: scale(0.9); opacity: 0; }
-            60% { transform: scale(1.1); opacity: 1; }
-            100% { transform: scale(1); }
-        }
-
-        .categories {
-            display: flex;
-            justify-content: space-around;
-            margin: 20px;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .category {
-            width: 22%;
-            padding: 20px;
-            text-align: center;
-            background-color:skyblue;
-            color: white;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: transform 0.3s, background-color 0.3s;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .category:hover {
-            transform: scale(1.1) rotate(-3deg);
-            background-color: #0056b3;
-        }
-
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            position: relative;
-            width: 100%;
-            bottom: 0;
-        }
-
-        .request-item {
-            background-color: #ffffff;
-            padding: 40px;
-            margin: 40px 0;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 1s ease-out;
-            text-align: center;
-        }
-
-        .request-content h2 {
-            color: #333;
-            font-size: 24px;
-            margin-bottom: 20px;
-            animation: fadeInUp 1.2s ease;
-        }
-
-        .request-content p {
-            color: #555;
-            font-size: 16px;
-            margin-bottom: 20px;
-            animation: fadeInUp 1.5s ease;
-        }
-
-        #request-form input[type="text"],
-        #request-form input[type="file"] {
-            width: 80%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            transition: border-color 0.3s ease;
-        }
-
-        #request-form input[type="text"]:focus,
-        #request-form input[type="file"]:focus {
-            border-color: #007bff;
-        }
-
-        #request-form input[type="submit"] {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            font-size: 16px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        #request-form input[type="submit"]:hover {
-            background-color: #0056b3;
-            transform: scale(1.05);
-        }
-
-       .background-watermark {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(0deg);
-    color: orange;
-    font-size: 10vw; /* Utilisation de vw pour une taille réactive */
-    font-weight: bold;
-    pointer-events: none;
-    user-select: none;
-    white-space: nowrap;
-    z-index: -1;
-    opacity: 0.5;
+   * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
+body{
+    background:url(240_F_326130732_TvfHDhPuhfo9YqOBuOqvb2JEKyXQQeck.jpg);
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
 
-/* Pour les petits écrans (mobiles), on peut ajuster la taille du filigrane */
-@media (max-width: 600px) {
-    .background-watermark {
-        font-size: 35vw; /* Augmente la taille sur les petits écrans */
+
+}
+    
+    header{
+        width:100%;
+        display:flex;
+        position: fixed;
+        top:0;
+        left: 0;
+        padding: 20px 80px;
+        align-items: center;
+        justify-content: space-between;
+        background: rgba(245, 244, 244, 0.286);
+        z-index: 100;
+        border-bottom:  2px solid rgb(255, 255, 255, 0.2);
+        backdrop-filter: blur(20px);
+        box-shadow:0 0 5px rgba(0, 0, 0, .5) ;
+        
+    
+
     }
-}
+    .navbar{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        
+    }
 
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+
+    .navbar a{
+       margin-left: 2.5em;
+       text-decoration: none;
+       color: rgb(249, 178, 116);
+       flex-shrink: 2;
+       
+       
+    }
+
+
+    .navbar a::after{
+        content: "";
+        display: block;
+        width:0%;
+        height:2px;
+        background-color: rgb(249, 178, 116);
+        margin-top: 5px;
+        transition: 0.5s;
+    }
+
+    .navbar a:hover::after{
+        width: 100%;
+    }
+
+    
+
+
+    .logo{
+        text-decoration: none;
+        color: rgb(249, 178, 116);
+        font-size: 25px;
+        font-weight: 560;
+    }
+
+    .sidebar{
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 250px;
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        z-index: 100;
+        background: rgba(255, 255, 255, 0.2);
+        z-index: 100;
+        border-bottom:  2px solid rgb(255, 255, 255, 0.2);
+        backdrop-filter: blur(20px);
+        box-shadow:0 0 5px rgba(0, 0, 0, .5) ;
+
+    }
+
+    .sidebar a{
+       margin:  1em ;
+       text-decoration: none;
+       color: rgb(249, 178, 116);
+       width: 100%;
+       padding: 3px 10px 3px 10px;
+
+       }
+
+
+    .menubutton{
+    display: none;
+    }
+
+    @media(max-width:800px){
+        .hide{
+        display: none;        
         }
-/* Style pour la section de suggestions */
-.request-item {
-    background-color: #f7f7f7;
-    padding: 40px;
-    margin: 40px 0;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
+        .menubutton{
+        position: relative;
+        top: 5px;
+        right: 0px;
+        display:block} 
 
-.request-content h2 {
-    color: #333;
-    font-size: 24px;
-    margin-bottom: 20px;
-    font-weight: bold;
-}
+        .header{
+            padding-right: 40px;
+        }  
+    }
 
-.request-content p {
-    color: #555;
-    font-size: 16px;
-    margin-bottom: 20px;
-    line-height: 1.5;
-}
+     @media(max-width:400px){
+        .side{
+        width:100%;        
+        }    
+    }
 
-#request-form input[type="text"] {
-    width: 80%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 16px;
-    transition: border-color 0.3s ease;
-}
-
-#request-form input[type="text"]:focus {
-    border-color: #007bff;
-    outline: none;
-}
-
-#request-form input[type="submit"] {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    font-size: 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-#request-form input[type="submit"]:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
-}
     </style>
-      <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script> 
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y3YXHN4B8Z"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-Y3YXHN4B8Z');
-</script>
 </head>
 <body>
     <header>
-        <h1>Pixel-Mart</h1>
+        <a href="#" class="logo">Pixel-Mart</a>
+        <div class="navbar">
+           <a href="#" class="hide">Inscription</a>
+            <a href="#"  class="hide" >Connexion</a>
+           <a href="#" class="hide">Produits</a>
+           <a href="#"  class="hide">Filtrer par pays</a>
+           <a href="#" class="hide" >Contact</a>
+           <a href="#" class="hide">Tableau de bord</a>
+           <div onclick="showSideBar()" class="menubutton"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></div>
+        </div>
+
+        <div class="sidebar">
+            <a href="#" onclick="hideSideBar()"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a>
+            <a href="#">Inscription</a>
+            <a href="#">Connexion</a>
+            <a href="#">Produits</a>
+            <a href="#">Filtrer par pays</a>
+            <a href="#">Contact</a>
+            <a href="#">Tableau de bord</a>
+        </div>
+
     </header>
-    <nav>
-        <ul>
-            <li><a href="description.html">À propos</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="guide.html">Guide</a></li>
-        </ul>
-    </nav>
-    <section class="description">
-        <h2>Bienvenue chez vous</h2>
-        <p>Pixel-Mart, votre destination en ligne dédiée à la mode, à la beauté, et à la technologie. Chez Pixel-Mart, nous nous engageons à vous offrir une expérience d'achat unique en vous proposant une sélection variée de produits de haute qualité, conçus pour répondre aux besoins et aux goûts de chacun...</p>
-    </section>
-    <section class="categories">
-        <div class="category" onclick="location.href='basket.html'">Baskets</div>
-        <div class="category" onclick="location.href='vetement.html'">Vêtements</div>
-        <div class="category" onclick="location.href='gadget.html'">Gadgets Électroniques</div>
-        <div class="category" onclick="location.href='soin_beuté.html'">Soins de Beauté</div>
-    </section>
-    <section class="request-item">
-    <div class="request-content">
-        <h2>Vous ne trouvez pas ce que vous cherchez ?</h2>
-        <p>Envoyez-nous le nom du produit que vous recherchez ou toute autre suggestion !</p>
-        <form id="request-form" onsubmit="sendWhatsAppMessage(); return false;">
-            <input type="text" id="product-name" placeholder="Nom du produit ou suggestion" required>
-            <input type="submit" value="Envoyer sur WhatsApp">
-        </form>
-    </div>
-</section>
+   
 
-<script>
-    function sendWhatsAppMessage() {
-        var productName = document.getElementById('product-name').value;
-        var phoneNumber = "22941788118"; // Remplacez par votre numéro WhatsApp
-        var message = "Bonjour, je vous ecris a propos de  : " + productName;
+    <script>
+        function showSideBar(){
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.style.display = 'flex';
 
-        var whatsappURL = "https://api.whatsapp.com/send?phone=" + phoneNumber + "&text=" + encodeURIComponent(message);
+           const menubutton = document.querySelector('.menubutton')
+           menubutton.style.display = 'none';
+            
+        };
 
-        window.open(whatsappURL, '_blank');
-    }
-</script>
-    <footer>
-        <p>&copy; 2024 Pixel-Mart. Tous droits réservés.</p>
-    </footer>
-    <div class="background-watermark">Pixel-Mart</div>
+        function hideSideBar(){
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.style.display = 'none'
+
+            const menubutton = document.querySelector('.menubutton');
+
+            menubutton.style.display = 'block';
+
+             
+        } ;
+
+        const menubutton = document.querySelector('.menubutton');
+
+        function updateButtonDisplay() {
+            if (window.matchMedia('(max-width:800px)').matches){
+                menubutton.style.display = 'block';
+            } else {
+                menubutton.style.display = 'none'
+            }
+        }
+
+        updateButtonDisplay();
+
+        window.addEventListener('resize',updateButtonDisplay);
+
+
+
+    </script>
+    
 </body>
 </html>
