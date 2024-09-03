@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel-Mart - Accueil</title>
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #00aaff;
+            padding: 20px 0;
+            text-align: center;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        nav {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: white;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ffaa00;
+        }
+
+        .hero {
+            background-color: black;
+            background-size: cover;
+            background-position: center;
+            padding: 100px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+
+        .hero button {
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            color: white;
+            background-color: #ffaa00;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero button:hover {
+            background-color: #ff8800;
+        }
+
+        .product-section {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 50px 20px;
+            background-color: #ffffff;
+        }
+
+        .product-card {
+            background-color: #f10f10f10;
+            width: 300px;
+            margin: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-card img {
+            width: 100%;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .product-card h3 {
+            font-size: 1.5rem;
+            margin: 15px;
+        }
+
+        .product-card p {
+            font-size: 1rem;
+            margin: 15px;
+            color: #555;
+        }
+
+        .product-card button {
+            padding: 10px 20px;
+            margin: 15px;
+            font-size: 1rem;
+            color: white;
+            background-color: #00aaff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .product-card button:hover {
+            background-color: #0088cc;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 20px;
+        }
+
+        footer p {
+            font-size: 0.10rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .product-card {
+                width: 100%;
+            }
+        }
+
+        /* Styles spécifiques */
+        .cart-icon {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 1000;
+    width: 60px; /* Largeur de l'icône du panier */
+    height: 60px; /* Hauteur de l'icône du panier */
+    border-radius: 50%; /* Bord arrondi pour rendre l'icône ronde */
+    background-color: #ffffff; /* Couleur de fond de l'icône */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre portée pour un effet d'élévation */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-icon img {
+    width: 40px; /* Largeur de l'image à l'intérieur de l'icône */
+    height: 40px; /* Hauteur de l'image à l'intérieur de l'icône */
+}
+
+
+        .cart-count {
+            position: absolute;
+            top: -4px;
+            right: -5px;
+            background-color: red;
+            color: #fff;
+            border-radius: 50%;
+            padding: 5px;
+            font-size: 12px;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .checkout-button {
+            display: none;
+            background-color: #ff6f00;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            border-radius: 0px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .checkout-button.show {
+            display: block;
+        }
+
+        /* Animation pour l'icône du panier */
+        .shake {
+            animation: shake 0.5s;
+        }
+
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            50% { transform: translateX(10px); }
+            75% { transform: translateX(-10px); }
+            100% { transform: translateX(0); }
+        }
+
+        /* Affichage du panier en fonction du défilement */
+        .show-cart-on-scroll {
+            position: fixed;
+            top: 150px;
+            right: 20px;
+            transition: opacity 0.3s ease;
+        }
+
+        .hide {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- En-tête -->
+    <header>
+        <h1>Bienvenue sur Pixel-Mart</h1>
+        <nav>
+            <a href="#">Accueil</a>
+            <a href="#">Produits</a>
+            <a href="#">Contact</a>
+            <a href="#">Outils </a>
+        </nav>
+    </header>
+
+    <!-- Section Hero -->
+    <section class="hero">
+        <h2>Découvrez les meilleurs produits à des prix imbattables</h2>
+        <p>Parcourez notre vaste sélection et trouvez ce que vous cherchez !</p>
+        <button>Voir les produits</button>
+    </section>
+
+    <!-- Section Produits -->
+    <section class="product-section">
+        <div class="product-card">
+            <img src="paire_10.JPG" alt="Basket">
+            <h3>Adidas Forum Bad Bunny</h3>
+            <p>Prix : 15 000 XOF</p>
+            <p>Une collaboration qui marque les esprits.</p>
+            <button onclick="addToCart('Adidas Forum Bad Bunny', 15000)">Ajouter au panier</button>
+            <button onclick="redirectToConfirmation('Adidas Forum Bad Bunny', 15000)">Commander</button>
+        </div>
+         <div class="product-card">
+            <img src="paire_10.JPG" alt="Basket">
+            <h3>Adidas Forum Bad Bunny</h3>
+            <p>Prix : 15 000 XOF</p>
+            <p>Une collaboration qui marque les esprits.</p>
+            <button onclick="addToCart('Adidas Forum Bad Bunny', 15000)">Ajouter au panier</button>
+            <button onclick="redirectToConfirmation('Adidas Forum Bad Bunny', 15000)">Commander</button>
+        </div>
+         <div class="product-card">
+            <img src="paire_10.JPG" alt="Basket">
+            <h3>Adidas Forum Bad Bunny</h3>
+            <p>Prix : 15 000 XOF</p>
+            <p>Une collaboration qui marque les esprits.</p>
+            <button onclick="addToCart('Adidas Forum Bad Bunny', 15000)">Ajouter au panier</button>
+            <button onclick="redirectToConfirmation('Adidas Forum Bad Bunny', 15000)">Commander</button>
+        </div>
+         <div class="product-card">
+            <img src="paire_10.JPG" alt="Basket">
+            <h3>Adidas Forum Bad Bunny</h3>
+            <p>Prix : 15 000 XOF</p>
+            <p>Une collaboration qui marque les esprits.</p>
+            <button onclick="addToCart('Adidas Forum Bad Bunny', 15000)">Ajouter au panier</button>
+            <button onclick="redirectToConfirmation('Adidas Forum Bad Bunny', 15000)">Commander</button>
+        </div>
+         <div class="product-card">
+            <img src="paire_10.JPG" alt="Basket">
+            <h3>Adidas Forum Bad Bunny</h3>
+            <p>Prix : 15 000 XOF</p>
+            <p>Une collaboration qui marque les esprits.</p>
+            <button onclick="addToCart('Adidas Forum Bad Bunny', 15000)">Ajouter au panier</button>
+            <button onclick="redirectToConfirmation('Adidas Forum Bad Bunny', 15000)">Commander</button>
+        </div>
+         <div class="product-card">
+            <img src="paire_10.JPG" alt="Basket">
+            <h3>Adidas Forum Bad Bunny</h3>
+            <p>Prix : 15 000 XOF</p>
+            <p>Une collaboration qui marque les esprits.</p>
+            <button onclick="addToCart('Adidas Forum Bad Bunny', 15000)">Ajouter au panier</button>
+            <button onclick="redirectToConfirmation('Adidas Forum Bad Bunny', 15000)">Commander</button>
+        </div>
+         <div class="product-card">
+            <img src="paire_10.JPG" alt="Basket">
+            <h3>Adidas Forum Bad Bunny</h3>
+            <p>Prix : 15 000 XOF</p>
+            <p>Une collaboration qui marque les esprits.</p>
+            <button onclick="addToCart('Adidas Forum Bad Bunny', 15000)">Ajouter au panier</button>
+            <button onclick="redirectToConfirmation('Adidas Forum Bad Bunny', 15000)">Commander</button>
+        </div>
+         <div class="product-card">
+            <img src="paire_10.JPG" alt="Basket">
+            <h3>Adidas Forum Bad Bunny</h3>
+            <p>Prix : 15 000 XOF</p>
+            <p>Une collaboration qui marque les esprits.</p>
+            <button onclick="addToCart('Adidas Forum Bad Bunny', 15000)">Ajouter au panier</button>
+            <button onclick="redirectToConfirmation('Adidas Forum Bad Bunny', 15000)">Commander</button>
+        </div>
+        <!-- Répéter les cartes de produit ici -->
+    </section>
+
+    <!-- Icône du panier -->
+    <div class="cart-icon show-cart-on-scroll hide" id="cart-icon" onclick="toggleCheckoutButton()">
+        <img src="panié2.jfif" alt="Panier">
+        <div class="cart-count" id="cart-count">0</div>
+    </div>
+
+    <!-- Bouton Passer à la caisse -->
+    <button class="checkout-button" id="checkout-button" onclick="redirectToCheckout()">Passer à la caisse</button>
+
+    <!-- Pied de page -->
+    <footer>
+        <p>&copy; 2024 Pixel-Mart. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        let cart = [];
+
+        function addToCart(productName, productPrice) {
+            let existingProduct = cart.find(item => item.name === productName);
+
+            if (existingProduct) {
+                existingProduct.quantity += 1;
+            } else {
+                cart.push({ name: productName, price: productPrice, quantity: 1 });
+            }
+
+            updateCartCount();
+            animateCartIcon();
+        }
+
+        function updateCartCount() {
+            const cartCountElement = document.getElementById('cart-count');
+            const totalItems = cart.reduce((total, product) => total + product.quantity, 0);
+            cartCountElement.innerText = totalItems;
+        }
+
+        function animateCartIcon() {
+            const cartIcon = document.getElementById('cart-icon');
+            cartIcon.classList.add('shake');
+            setTimeout(() => cartIcon.classList.remove('shake'), 500);
+        }
+
+        function redirectToCheckout() {
+            window.location.href = 'checkout.html';
+        }
+
+        function redirectToConfirmation(productName, productPrice) {
+            window.location.href = `confirmation.html?product=${encodeURIComponent(productName)}&price=${encodeURIComponent(productPrice)}`;
+        }
+
+        function toggleCheckoutButton() {
+            const checkoutButton = document.getElementById('checkout-button');
+            checkoutButton.classList.toggle('show');
+        }
+
+        // Affichage du panier en fonction du défilement
+        window.addEventListener('scroll', function() {
+            const cartIcon = document.getElementById('cart-icon');
+            if (window.scrollY > 500) {
+                cartIcon.classList.remove('hide');
+                cartIcon.classList.add('show');
+            } else {
+                cartIcon.classList.remove('show');
+                cartIcon.classList.add('hide');
+            }
+        });
+    </script>
+</body>
+</html>
